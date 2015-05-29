@@ -1,11 +1,6 @@
 (function() {
   'use strict';
 
-  angular
-    .module('app.home')
-    .run(appRun);
-
-  /* @ngInject */
   function appRun(routehelper) {
     routehelper.configureRoutes(getRoutes());
   }
@@ -22,4 +17,8 @@
       }
     ];
   }
+
+  angular
+    .module('app.home')
+    .run(appRun);
 })();

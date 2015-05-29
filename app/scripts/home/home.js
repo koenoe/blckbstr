@@ -1,23 +1,16 @@
 (function() {
   'use strict';
 
-  angular
-    .module('app.home')
-    .controller('Home', Home);
-
-  Home.$inject = ['$q', 'dataservice', 'logger'];
-
-  function Home($q, dataservice, logger) {
+  // $q, dataservice, logger
+  function Home($q, dataservice) {
 
     var vm = this;
 
-    vm.backdrop_url = '';
+    vm.backdropUrl = '';
     vm.title = '';
-    vm.release_year = '';
-    vm.imdb_id = '';
+    vm.releaseYear = '';
+    vm.imdbId = '';
     vm.show = false;
-
-    activate();
 
     function activate() {
       // var promises = [getRandomMovie()];
@@ -33,25 +26,34 @@
 
     function getRandomMovie() {
       return dataservice.getRandomMovie().then(function(data) {
-          vm.backdrop_url = data.backdrop_url;
+          vm.backdropUrl = data.backdropUrl;
           vm.title = data.title;
-          vm.release_year = data.release_year;
-          vm.imdb_id = data.imdb_id;
+          vm.releaseYear = data.releaseYear;
+          vm.imdbId = data.imdbId;
           return data;
       });
     }
 
     function preloadBackdrop(){
       var defer = $q.defer(),
-          $img = angular.element(new Image())
+          $img = angular.element(new Image());
 
       $img.bind('load', function(){
         defer.resolve($img);
       });
 
-      $img.attr('src', vm.backdrop_url);
+      $img.attr('src', vm.backdropUrl);
 
       return defer.promise;
     }
+
+    activate();
   }
+
+  angular
+    .module('app.home')
+    .controller('Home', Home);
+
+  Home.$inject = ['$q', 'dataservice', 'logger'];
+  
 })();

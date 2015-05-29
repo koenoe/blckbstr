@@ -6,7 +6,8 @@
     .module('app', [
       'app.core',
       'app.widgets',
-      'app.home'
+      'app.home',
+      'app.movie'
     ]);
 
 })();

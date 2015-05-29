@@ -1,11 +1,6 @@
 (function() {
   'use strict';
 
-  angular
-    .module('app.movie')
-    .run(appRun);
-
-  /* @ngInject */
   function appRun(routehelper) {
     routehelper.configureRoutes(getRoutes());
   }
@@ -13,7 +8,7 @@
   function getRoutes() {
     return [
       {
-        url: '/',
+        url: '/movie',
         config: {
           templateUrl: 'scripts/movie/movie.html',
           controller: 'Movie',
@@ -22,4 +17,8 @@
       }
     ];
   }
+
+  angular
+    .module('app.movie')
+    .run(appRun);
 })();
