@@ -3,15 +3,12 @@
 (function() {
   'use strict';
 
-  angular
-    .module('blocks.exception')
-    .provider('exceptionHandler', exceptionHandlerProvider)
-    .config(config);
-
   /**
    * Must configure the exception handling
    * @return {[type]}
    */
+   
+  /* @ngInject */
   function exceptionHandlerProvider() {
     /* jshint validthis:true */
     this.config = {
@@ -34,6 +31,8 @@
    * @return {[type]}
    * @ngInject
    */
+
+  /* @ngInject */
   function config($provide) {
     $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
@@ -45,6 +44,8 @@
    * @param  {Object} logger
    * @return {Function} the decorated $exceptionHandler service
    */
+
+  /* @ngInject */
   function extendExceptionHandler($delegate, exceptionHandler, logger) {
     return function(exception, cause) {
       var appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';
@@ -63,4 +64,10 @@
       logger.error(exception.message, errorData);
     };
   }
+
+  angular
+    .module('blocks.exception')
+    .provider('exceptionHandler', exceptionHandlerProvider)
+    .config(config);
+    
 })();

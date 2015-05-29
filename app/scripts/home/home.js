@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  /* @ngInject */
   // $q, dataservice, logger
   function Home($q, dataservice) {
 
@@ -53,7 +54,5 @@
   angular
     .module('app.home')
     .controller('Home', Home);
-
-  Home.$inject = ['$q', 'dataservice', 'logger'];
   
 })();

@@ -2,6 +2,7 @@
   'use strict';
 
   // $q, dataservice, logger
+  /* @ngInject */
   function Movie() {
 
     // var vm = this;
@@ -16,7 +17,5 @@
   angular
     .module('app.movie')
     .controller('Movie', Movie);
-
-  Movie.$inject = ['$q', 'dataservice', 'logger'];
 
 })();

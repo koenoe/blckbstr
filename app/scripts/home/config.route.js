@@ -1,10 +1,12 @@
 (function() {
   'use strict';
 
+  /* @ngInject */
   function appRun(routehelper) {
     routehelper.configureRoutes(getRoutes());
   }
 
+  /* @ngInject */
   function getRoutes() {
     return [
       {
@@ -21,4 +23,5 @@
   angular
     .module('app.home')
     .run(appRun);
+    
 })();

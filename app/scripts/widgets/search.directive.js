@@ -2,6 +2,7 @@
 
   'use strict';
 
+  /* @ngInject */
   function search() {
     var directive = {
       restrict: 'EA',
@@ -13,6 +14,7 @@
     return directive;
   }
 
+  /* @ngInject */
   function searchController($scope) {
     $scope.usernames = [];
 

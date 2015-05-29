@@ -1,14 +1,8 @@
 (function() {
   'use strict';
 
-  angular
-    .module('blocks.router')
-    .provider('routehelperConfig', routehelperConfig)
-    .factory('routehelper', routehelper);
-
-  routehelper.$inject = ['$location', '$rootScope', '$route', 'logger', 'routehelperConfig'];
-
   // Must configure via the routehelperConfigProvider
+  /* @ngInject */
   function routehelperConfig() {
     /* jshint validthis:true */
     this.config = {
@@ -25,24 +19,8 @@
     };
   }
 
+  /* @ngInject */
   function routehelper($location, $rootScope, $route, logger, routehelperConfig) {
-    var handlingRouteChangeError = false;
-    var routeCounts = {
-      errors: 0,
-      changes: 0
-    };
-    var routes = [];
-    var $routeProvider = routehelperConfig.config.$routeProvider;
-    var service = {
-      configureRoutes: configureRoutes,
-      getRoutes: getRoutes,
-      routeCounts: routeCounts
-    };
-
-    init();
-
-    return service;
-    ///////////////
 
     function configureRoutes(routes) {
       routes.forEach(function(route) {
@@ -99,5 +77,28 @@
         }
       );
     }
+
+    var handlingRouteChangeError = false;
+    var routeCounts = {
+      errors: 0,
+      changes: 0
+    };
+    var routes = [];
+    var $routeProvider = routehelperConfig.config.$routeProvider;
+    var service = {
+      configureRoutes: configureRoutes,
+      getRoutes: getRoutes,
+      routeCounts: routeCounts
+    };
+
+    init();
+
+    return service;
   }
+
+  angular
+    .module('blocks.router')
+    .provider('routehelperConfig', routehelperConfig)
+    .factory('routehelper', routehelper);
+  
 })();

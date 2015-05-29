@@ -57,5 +57,4 @@
   angular
     .module('app.core')
     .factory('dataservice', dataservice);
-
 })();

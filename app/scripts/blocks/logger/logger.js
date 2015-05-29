@@ -1,28 +1,9 @@
 (function() {
   'use strict';
 
-  angular
-    .module('blocks.logger')
-    .factory('logger', logger);
-
-  logger.$inject = ['$log', 'toastr'];
-
+  /* @ngInject */
   function logger($log, toastr) {
-    var service = {
-      showToasts: true,
-
-      error   : error,
-      info    : info,
-      success : success,
-      warning : warning,
-
-      // straight to console; bypass toastr
-      log     : $log.log
-    };
-
-    return service;
-    /////////////////////
-
+    
     function error(message, data, title) {
       toastr.error(message, title);
       $log.error('Error: ' + message, data);
@@ -42,5 +23,24 @@
       toastr.warning(message, title);
       $log.warn('Warning: ' + message, data);
     }
+
+    var service = {
+      showToasts: true,
+
+      error   : error,
+      info    : info,
+      success : success,
+      warning : warning,
+
+      // straight to console; bypass toastr
+      log     : $log.log
+    };
+
+    return service;
   }
+
+  angular
+    .module('blocks.logger')
+    .factory('logger', logger);
+  
 }());
