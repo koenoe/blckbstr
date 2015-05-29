@@ -26,11 +26,11 @@
 
     function getRandomMovie() {
       return dataservice.getRandomMovie().then(function(data) {
-          vm.backdropUrl = data.backdropUrl;
-          vm.title = data.title;
-          vm.releaseYear = data.releaseYear;
-          vm.imdbId = data.imdbId;
-          return data;
+        vm.backdropUrl = data.backdropUrl;
+        vm.title = data.title;
+        vm.releaseYear = data.releaseYear;
+        vm.imdbId = data.imdbId;
+        return data;
       });
     }
 

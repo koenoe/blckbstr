@@ -21,6 +21,7 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -46,7 +47,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['sass_globbing', 'compass:server', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -200,6 +201,19 @@ module.exports = function (grunt) {
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
+      }
+    },
+
+    sass_globbing: {
+      default_options: {
+        files: {
+          '<%= yeoman.app %>/styles/_mixinsMap.scss': '<%= yeoman.app %>/styles/mixins/**/*.scss',
+          '<%= yeoman.app %>/styles/_baseMap.scss': '<%= yeoman.app %>/styles/base/**/*.scss',
+          '<%= yeoman.app %>/styles/_componentsMap.scss': '<%= yeoman.app %>/styles/components/**/*.scss'
+        },
+        options: {
+          useSingleQuotes: false
+        }
       }
     },
 
@@ -421,7 +435,8 @@ module.exports = function (grunt) {
       }
     }
   });
-
+  
+  grunt.loadNpmTasks('grunt-sass-globbing');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {

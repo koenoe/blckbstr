@@ -1,1 +1,20 @@
-home hier
+<div class="row">
+  <div ng-show="vm.show" class="home backdrop animated fadeIn" style="background-image: url({{vm.backdropUrl}})">
+    <div class="backdrop__credits">
+      <div class="backdrop__still-credits">
+        <div class="small">
+          Still from <a href="//www.imdb.com/title/{{vm.imdbId}}" target="_blank">{{vm.title}}</a>({{vm.releaseYear}})
+        </div>
+      </div>
+      <div class="backdrop__site-credits">
+        <div class="small">
+          Made by fans in Rotterdam, The Netherlands<br>
+          Film data supplied by <a href="#">Letterboxd</a> and <a href="#">TMDb</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div search="true"></div>
+  </div>
+</div>

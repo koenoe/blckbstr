@@ -7,7 +7,7 @@
     // var vm = this;
 
     function activate() {
-      console.log('activate movie');
+      
     }
 
     activate();

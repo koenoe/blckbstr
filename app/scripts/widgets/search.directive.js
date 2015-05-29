@@ -5,7 +5,7 @@
   function search() {
     var directive = {
       restrict: 'EA',
-      templateUrl: 'app/widgets/search.directive.html',
+      templateUrl: 'scripts/widgets/search.directive.html',
       controller: searchController,
       bindToController: true
     };
