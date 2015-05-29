@@ -12,7 +12,7 @@
         return data.data;
       }
 
-      return $http.get('http://localhost:3000/api/v1/movies/random')
+      return $http.get('http://localhost:3000/v1/movies/random')
         .then(getRandomMovieComplete)
         .catch(function(message) {
           exception.catcher('XHR Failed for getRandomMovie')(message);
