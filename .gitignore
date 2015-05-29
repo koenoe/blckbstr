@@ -3,3 +3,6 @@ dist
 .tmp
 .sass-cache
 bower_components
+
+# Ignore project files
+blckbstr.sublime-project
