@@ -35,9 +35,15 @@ module.exports = function(config) {
       'bower_components/toastr/toastr.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      "app/scripts/**/*.js",
-      "test/mock/**/*.js",
-      "test/spec/**/*.js"
+      // "app/scripts/blocks/exception/*.js",
+      // "app/scripts/blocks/logger/*.js",
+      // "app/scripts/blocks/router/*.js",
+      // "app/scripts/core/*.js",
+      // "app/scripts/widgets/*.js",
+      // "app/scripts/home/*.js",
+      // "app/scripts/movie/*.js",
+      // "test/mock/**/*.js",
+      // "test/spec/**/*.js"
     ],
 
     // list of files / patterns to exclude
