@@ -1,6 +1,6 @@
 .btn {
   @include font-bold;
-  @include button-variant(#fff, transparent, transparent);
+  //@include button-variant(#fff, transparent, transparent);
 
   border-width: 1px;
   outline: 0;
@@ -16,7 +16,7 @@
   }
 
   &.btn-secondary {
-    @include button-variant(#fff, transparent, #fff);
+    //@include button-variant(#fff, transparent, #fff);
     //color: #fff;z
     //background: $brand-primary;
     //border: 0;

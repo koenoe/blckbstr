@@ -13,8 +13,8 @@
   &__content {
     background: inherit; // same as box bg color
     padding: $grid-gutter-width / 2;
-    padding-bottom: 999px;
-    margin-bottom: -999px;
+    //padding-bottom: 999px;
+    //margin-bottom: -999px;
 
     &:after {
       content: '';

@@ -13,7 +13,9 @@
 
   border-radius: 50%;
   .circle {
-    .mask, .fill {
+    
+    .mask, 
+    .fill {
       width:    $circle-size;
       height:   $circle-size;
       position: absolute;
@@ -24,46 +26,31 @@
       transition: transform $transition-length;
       border-radius: 50%;
     }
+
     .mask {
       clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+
       .fill {
         clip: rect(0px, $circle-size/2, $circle-size, 0px);
-        //background: $circle-background;
         border: 6px solid #fff;
       }
     }
   }
+
   .inset {
-    width:       $circle-size;
-    height:      $circle-size;
-    position:    absolute;
-    //margin-left: ($circle-size - $inset-size)/2;
-    //margin-top:  ($circle-size - $inset-size)/2;
-    border:       6px solid rgba(#fff, 0.4);
-    //background: $inset-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: $circle-size;
+    height: $circle-size;
+    border: 6px solid rgba(#fff, 0.4);
     border-radius: 50%;
+
     .percentage {
       @include font-bold;
       font-size: $font-size-h2;
-      text-align: center;
-      padding-top: 30px;
-
-      .numbers {
-        margin-top: -$percentage-font-size;
-        transition: width $transition-length;
-        span {
-          width:          $percentage-text-width;
-          line-height:    1;
-          display:        inline-block;
-          vertical-align: top;
-
-          text-align:     center;
-          font-weight:    800;
-          font-size:      $percentage-font-size;
-          font-family:    "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-          color:          $percentage-color;
-        }
-      }
+      text-align: center
     }
   }
 
@@ -74,17 +61,20 @@
   @for $i from 1 through 100 {
     &[data-progress="#{$i}"] {
       .circle {
+
         .mask.full, .fill {
           -webkit-transform: rotate($increment * $i);
           -ms-transform: rotate($increment * $i);
           transform: rotate($increment * $i);
         }
+
         .fill.fix {
           -webkit-transform: rotate($increment * $i * 2);
           -ms-transform: rotate($increment * $i * 2);
           transform: rotate($increment * $i * 2);
         }
       }
+
       .inset .percentage .numbers {
         width: $i * $percentage-text-width + $percentage-text-width;
       }

@@ -2,8 +2,9 @@
 .search-box {
   position: relative;
 
-  @media (min-width: $screen-sm-max) {
-	  @include translate(-50%, -50%);
+  @include respond-to(md) {
+    // TODO: vertical align with flexbox grid
+	  //@include translate(-50%, -50%);
     top: 50%;
     left: 50%;
     position: absolute;

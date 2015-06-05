@@ -1,10 +1,6 @@
 .movie {
   padding: 132px 0;
 
-  .row {
-    overflow: hidden;
-  }
-
   &__backdrop {
     @extend .backdrop;
 

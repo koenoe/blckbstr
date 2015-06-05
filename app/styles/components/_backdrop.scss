@@ -34,7 +34,7 @@
       text-decoration: underline;
     }
 
-    @media (min-width: $screen-xs-max) {
+    @include respond-to(md) {
       position: absolute;
       bottom: 0;
       left: 12px;
@@ -50,7 +50,7 @@
       text-decoration: underline;
     }
 
-    @media (min-width: $screen-xs-max) {
+    @include respond-to(md) {
       position: absolute;
       bottom: 0;
       right: 12px;

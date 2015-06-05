@@ -1,18 +1,15 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+//$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 // Animate.css (sassy version)
 @import "animate-variables";
 
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "animate-sass/_animate.scss";
+@import "normalize.scss/_normalize.scss";
 // endbower
 
-// Import custom Bootstrap variables
-@import "bootstrap-variables";
-
-// Import bootstrap em font sizes
-@import "bootstrap-em";
+// Import custom variables
+@import "variables";
 
 // Import project stuff
 @import "mixins-map";
