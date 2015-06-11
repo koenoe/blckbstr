@@ -2,12 +2,13 @@
   @include font-bold;
   //@include button-variant(#fff, transparent, transparent);
 
-  border-width: 1px;
+  border: $border-s solid #fff;
   outline: 0;
   font-size: 1em;
   //padding: 10px 25px;
-  border-radius: 2px;
+  border-radius: $radius-m;
   display: inline-block;
+  padding: 0.4em 0.6em;
 
   &.btn-primary {
     // @include button-variant(#fff, $brand-primary, transparent);
