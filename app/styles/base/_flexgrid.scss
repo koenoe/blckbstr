@@ -95,7 +95,7 @@ $fg-breakpoints: (
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  @include spacing((-$fg-gutter), margin, horizontal);
+  @include spacing((-$fg-gutter/2), margin, horizontal);
 
   &.reverse {
     flex-direction: row-reverse;
@@ -104,23 +104,15 @@ $fg-breakpoints: (
 
 
 %col {
-  box-sizing: border-box;
-  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   @include spacing(($fg-gutter/2), padding, horizontal);
 
   &.stretch {
     align-items: stretch;
     flex-direction: row;
   }
-}
-
-%col-flex {
-  @extend %col;
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
 }
 
 /**
@@ -132,9 +124,6 @@ $fg-breakpoints: (
  */
 
 @mixin grid-base($namespace) {
-  .col-#{$namespace} {
-    @extend %col-flex;
-  }
 
   @for $i from 1 through $fg-columns {
     .col-#{$namespace}-#{$i} {
