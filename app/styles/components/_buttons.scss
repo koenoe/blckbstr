@@ -1,27 +1,29 @@
 .btn {
   @include font-bold;
-  //@include button-variant(#fff, transparent, transparent);
 
   border: $border-s solid #fff;
   outline: 0;
   font-size: 1em;
-  //padding: 10px 25px;
+  padding: 10px 25px;
   border-radius: $radius-m;
   display: inline-block;
-  padding: 0.4em 0.6em;
+  background: none;
 
-  &.btn-primary {
-    // @include button-variant(#fff, $brand-primary, transparent);
+  &.btn--primary {
     color: #fff;
     background: $brand-primary;
     border: 0;
   }
 
-  &.btn-secondary {
-    //@include button-variant(#fff, transparent, #fff);
-    //color: #fff;z
-    //background: $brand-primary;
-    //border: 0;
+  &.btn--secondary {
     font-weight: normal;
+  }
+
+  .btn-group & {
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
