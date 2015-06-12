@@ -16,7 +16,7 @@
         .then(getRandomMovieComplete)
         .catch(function(message) {
           exception.catcher('XHR Failed for getRandomMovie')(message);
-          $location.url('/');
+          // $location.url('/');
         });
     }
 

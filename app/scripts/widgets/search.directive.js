@@ -16,6 +16,7 @@
 
   /* @ngInject */
   function searchController($scope) {
+
     $scope.inputs = [{
       type: 'plus'
     }];
@@ -28,6 +29,14 @@
 
     $scope.removeInput = function(index) {
       $scope.inputs.splice(index, 1);
+    };
+
+    $scope.userExist = function(username){
+      console.log(username);
+    };
+
+    $scope.submit = function(){
+      console.log('submit form');
     };
   }
 
