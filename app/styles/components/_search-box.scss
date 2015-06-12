@@ -27,10 +27,10 @@
     margin-bottom: 10px;
 
     &.ng-enter-active {
-      @extend .fadeIn;
+      @extend .bounceIn;
     }
     &.ng-leave-active {
-      @extend .fadeOut;
+      @extend .bounceOut;
     }
 
     input, button {
