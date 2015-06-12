@@ -5,4 +5,28 @@
   width: 100%;
   height: 100%;
   background-size: cover;
+
+  &__credits {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+
+    &__label {
+      @include font-semibold;
+      text-transform: uppercase;
+      font-size: 18px;
+      color: #6b6b6b;
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      font-size: 36px;
+
+      span {
+        font-size: 18px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
 }
