@@ -1,14 +1,12 @@
 <div class="search-box">
   <form>
-    <div ng-repeat="input in inputs">
-      <div class="search-box__input">
-        <input type="text" placeholder="Letterboxd username">
-        <div ng-if="input.type == 'plus'">
-          <button ng-click="addInput()" ng-if="inputs.length < 4">+</button>
-        </div>
-        <div ng-if="input.type == 'min'">
-          <button ng-click="removeInput($index)">-</button>
-        </div>
+    <div class="search-box__input animated" ng-repeat="input in inputs">
+      <input type="text" placeholder="Letterboxd username">
+      <div ng-if="input.type == 'plus'">
+        <button ng-click="addInput()" ng-if="inputs.length < 4">+</button>
+      </div>
+      <div ng-if="input.type == 'min'">
+        <button ng-click="removeInput($index)">-</button>
       </div>
     </div>
     <button class="btn"><i class="icon-search"></i>Give me advice</button>
