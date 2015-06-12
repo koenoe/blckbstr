@@ -18,11 +18,11 @@
       // return $q.all(promises).then(function() {
       // });
 
-      $q.when(getRandomMovie()).then(function(){
-        $q.when(preloadBackdrop()).then(function(){
-          vm.show = true;
-        });
-      });
+      // $q.when(getRandomMovie()).then(function(){
+      //   $q.when(preloadBackdrop()).then(function(){
+      //     vm.show = true;
+      //   });
+      // });
     }
 
     function getRandomMovie() {
@@ -54,5 +54,5 @@
   angular
     .module('app.home')
     .controller('Home', Home);
-  
+
 })();

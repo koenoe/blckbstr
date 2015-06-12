@@ -1,4 +1,9 @@
-@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900");
+
+@mixin font-extralight {
+  font-family: $font-family-base;
+  font-weight: 200;
+}
 
 @mixin font-light {
   font-family: $font-family-base;
@@ -10,7 +15,17 @@
   font-weight: 400;
 }
 
+@mixin font-semibold {
+  font-family: $font-family-base;
+  font-weight: 700;
+}
+
 @mixin font-bold {
   font-family: $font-family-base;
   font-weight: 700;
+}
+
+@mixin font-ultrabold {
+  font-family: $font-family-base;
+  font-weight: 900;
 }

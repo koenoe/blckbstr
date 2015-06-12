@@ -1,9 +1,6 @@
-html {
-  font-size: $font-size-root;
-}
-
 body {
   @include font-normal;
+
   color: $text-color;
   font-size: $font-size-base;
 }
@@ -18,16 +15,16 @@ a {
 }
 
 p {
-  line-height: 1.9;
+  line-height: $line-height-base;
 }
 
 h1, .h1,
 h2, .h2,
 h3, h3 {
-  line-height: 1.2;
+  line-height: $line-height-base;
 }
 
-h1, 
+h1,
 .h1 {
   font-size: $font-size-h1;
 }

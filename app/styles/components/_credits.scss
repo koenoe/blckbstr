@@ -1,0 +1,12 @@
+.credits {
+  position: relative;
+  text-align: right;
+  margin: 15px;
+
+  &,a {
+    @include font-light;
+    color: rgba(#fff, 0.4);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}

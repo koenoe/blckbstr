@@ -2,7 +2,12 @@
   padding: 132px 0;
 
   &__backdrop {
-    @extend .backdrop;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center top;
 
     position: absolute;
     background-image: url(https://image.tmdb.org/t/p/original/9X3cDZb4GYGQeOnZHLwMcCFz2Ro.jpg);
