@@ -16,16 +16,18 @@
 
   /* @ngInject */
   function searchController($scope) {
-    $scope.usernames = [];
+    $scope.inputs = [{
+      type: 'plus'
+    }];
 
-    // create empty username field
-    $scope.addUsernameField = function() {
-      $scope.usernames.push('');
+    $scope.addInput = function() {
+      $scope.inputs.push({
+        type: 'min'
+      });
     };
 
-    // remove username
-    $scope.remove = function(index) {
-      $scope.usernames.splice(index, 1);
+    $scope.removeInput = function(index) {
+      $scope.inputs.splice(index, 1);
     };
   }
 
