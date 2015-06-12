@@ -13,6 +13,9 @@
 @import "variables";
 
 // Import project stuff
-@import "mixins-map";
-@import "base-map";
-@import "components-map";
+@import "generated/fontello";
+
+// Import generated map files
+@import "map-mixins";
+@import "map-base";
+@import "map-components";

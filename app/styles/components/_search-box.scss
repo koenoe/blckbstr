@@ -1,46 +1,65 @@
-// search bar
 .search-box {
-  position: relative;
+  @include center-content;
 
-  @include respond-to(md) {
-    // TODO: vertical align with flexbox grid
-	  //@include translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-  }
-
-	text-align: center;
-
-  h1, p, .form-group {
-    padding: 0;
-    margin: 0 0 20px 0;
-  }
-
-  h1 {
-    @include font-bold;
-  }
-
-  p {
-    line-height: 1.5;
-    //text-shadow: 1px 1px 2px rgba(#000, 0.6);
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
   form {
-    width: 75%;
+    position: relative;
+    width: 600px;
+    text-align: center;
+  }
 
-    .form-group {
-      position: relative;
+  .btn {
+    margin-top: 25px;
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+
+    input, button {
+      background: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      height: 70px;
+      line-height: 70px;
+
+      &:focus {
+        outline: 0;
+      }
     }
 
-    .ng-leave {
-      @include animate-prefixer(animation-name, bounceOut);
+    input {
+      @include font-bold;
+      width: 100%;
+      text-align: center;
+      font-size: 36px;
+
+      @include placeholder {
+        @include font-light;
+        color: rgba(#fff, 0.4);
+        font-size: 36px;
+      }
     }
 
-    .btn-remove {
+    button {
+      @include font-light;
       position: absolute;
-      right: 0;
       top: 0;
+      right: 0;
+      display: inline-block;
+      width: auto;
+      height: auto;
+      font-size: 60px;
     }
   }
 }

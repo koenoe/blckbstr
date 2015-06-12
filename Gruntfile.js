@@ -207,9 +207,9 @@ module.exports = function (grunt) {
     sass_globbing: {
       default_options: {
         files: {
-          '<%= yeoman.app %>/styles/_mixins-map.scss': '<%= yeoman.app %>/styles/mixins/**/*.scss',
-          '<%= yeoman.app %>/styles/_base-map.scss': '<%= yeoman.app %>/styles/base/**/*.scss',
-          '<%= yeoman.app %>/styles/_components-map.scss': '<%= yeoman.app %>/styles/components/**/*.scss'
+          '<%= yeoman.app %>/styles/_map-mixins.scss': '<%= yeoman.app %>/styles/mixins/**/*.scss',
+          '<%= yeoman.app %>/styles/_map-base.scss': '<%= yeoman.app %>/styles/base/**/*.scss',
+          '<%= yeoman.app %>/styles/_map-components.scss': '<%= yeoman.app %>/styles/components/**/*.scss'
         },
         options: {
           useSingleQuotes: false

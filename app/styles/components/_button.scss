@@ -1,0 +1,30 @@
+.btn {
+  @include font-normal;
+  @include transition-property(all);
+  @include transition-duration(0.4s);
+
+  display: inline-block;
+  border: 1px solid rgba(#fff, 0.4);
+  border-radius: 2px;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 25px;
+  margin: 0;
+  background: transparent;
+
+  i {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+
+  &:hover {
+    background: rgba(#fff, 0.2);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
