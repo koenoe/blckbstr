@@ -7,10 +7,10 @@
 
     var vm = this;
 
-    vm.backdropUrl = '';
     vm.title = '';
-    vm.releaseYear = '';
-    vm.imdbId = '';
+    vm.backdrop_url = '';
+    vm.release_year = '';
+    vm.imdb_url = '';
     vm.show = false;
 
     function activate() {
@@ -18,19 +18,19 @@
       // return $q.all(promises).then(function() {
       // });
 
-      // $q.when(getRandomMovie()).then(function(){
-      //   $q.when(preloadBackdrop()).then(function(){
-      //     vm.show = true;
-      //   });
-      // });
+      $q.when(getRandomMovie()).then(function(){
+        $q.when(preloadBackdrop()).then(function(){
+          vm.show = true;
+        });
+      });
     }
 
     function getRandomMovie() {
       return dataservice.getRandomMovie().then(function(data) {
-        vm.backdropUrl = data.backdropUrl;
         vm.title = data.title;
-        vm.releaseYear = data.releaseYear;
-        vm.imdbId = data.imdbId;
+        vm.backdrop_url = data.tmdb_backdrop_url;
+        vm.release_year = data.release_year;
+        vm.imdb_url = data.imdb_url;
         return data;
       });
     }
@@ -43,7 +43,7 @@
         defer.resolve($img);
       });
 
-      $img.attr('src', vm.backdropUrl);
+      $img.attr('src', vm.backdrop_url);
 
       return defer.promise;
     }

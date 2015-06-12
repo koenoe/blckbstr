@@ -1,4 +1,6 @@
-<div class="still animated fadeIn" style="background-image: url(https://image.tmdb.org/t/p/original/ts4j3zYaPzdUVF3ijBeBdGVDWjX.jpg)">
+<div ng-show="vm.show" class="still animated fadeIn" style="background-image: url({{vm.backdrop_url}})">
+
+  <div class="still__overlay"></div>
 
   <div search="true"></div>
 
@@ -7,7 +9,7 @@
       Still from
     </div>
     <div class="still__credits__title">
-      Nightcrawler <span>(2014)</span>
+      {{vm.title}}<span>({{vm.release_year}})</span>
     </div>
   </div>
 </div>
