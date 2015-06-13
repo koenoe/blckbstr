@@ -4,14 +4,14 @@
   @include transition-duration(0.4s);
 
   display: inline-block;
-  border: 1px solid rgba(#fff, 0.4);
-  border-radius: 2px;
+  border: $border-s solid rgba(#fff, 0.4);
+  border-radius: $radius-m;
   height: 50px;
   line-height: 50px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: $font-size-base;
   color: #fff;
-  padding: 0 25px;
+  padding: 0 $distance-l;
   margin: 0;
   background: transparent;
 
@@ -27,4 +27,19 @@
   &:focus {
     outline: 0;
   }
+
+  &.btn--primary {
+  }
+
+  &.btn--secondary {
+  }
+
+  .btn--group & {
+    margin-right: $distance-m;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
 }

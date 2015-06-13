@@ -69,6 +69,14 @@ $radius-l:			$radius-s * 4;
 //** Padding between columns. Gets divided in half for the left and right.
 $grid-gutter-width:         30px;
 
+$distance:                  $grid-gutter-width / 2;
+
+$distance-xs:               $distance / 4;
+$distance-s:                $distance / 2;
+$distance-m:                $distance;
+$distance-l:                $distance * 2;
+$distance-xl:               $distance * 4;
+
 // Large screen / wide desktop
 $container-large-desktop:      (1140px + $grid-gutter-width);
 //** For `$screen-lg-min` and up.
