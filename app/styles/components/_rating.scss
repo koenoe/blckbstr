@@ -19,6 +19,7 @@
       width:    $circle-size;
       height:   $circle-size;
       position: absolute;
+      box-sizing: border-box;
 
       -webkit-backface-visibility: hidden;
       transition: -webkit-transform $transition-length;
@@ -46,6 +47,7 @@
     height: $circle-size;
     border: 6px solid rgba(#fff, 0.4);
     border-radius: 50%;
+    box-sizing: border-box;
 
     .percentage {
       @include font-bold;
