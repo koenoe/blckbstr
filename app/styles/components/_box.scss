@@ -13,14 +13,6 @@
   &__content {
     background: inherit; // same as box bg color
     padding: $grid-gutter-width / 2;
-    //padding-bottom: 999px;
-    //margin-bottom: -999px;
-
-    &:after {
-      content: '';
-      display: block;
-      padding-bottom: $grid-gutter-width / 2; // same as box__content padding;
-    }
   }
 
   &__subtitle {
@@ -44,15 +36,15 @@
     margin-top: $grid-gutter-width;
   }
 
-  &.box-primary {
+  &.box--primary {
     background: $brand-primary;
   }
 
-  &.box-secondary {
+  &.box--secondary {
     background: #161616;
   }
 
-  &.box-tertiary {
+  &.box--tertiary {
     background: #222;
   }
 
