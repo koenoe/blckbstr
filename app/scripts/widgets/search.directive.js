@@ -15,15 +15,23 @@
   }
 
   /* @ngInject */
-  function searchController($scope) {
+  function searchController($scope, $q, dataservice) {
+
+    function validateUsers(usernames) {
+      return dataservice.validateUsers(usernames);
+    }
 
     $scope.inputs = [{
-      type: 'plus'
+      type: 'plus',
+      value: '',
+      error: false
     }];
 
     $scope.addInput = function() {
       $scope.inputs.push({
-        type: 'min'
+        type: 'min',
+        value: '',
+        error: false
       });
     };
 
@@ -31,12 +39,29 @@
       $scope.inputs.splice(index, 1);
     };
 
-    $scope.userExist = function(username){
-      console.log(username);
-    };
-
     $scope.submit = function(){
-      console.log('submit form');
+
+      // Get usernames from input
+      var usernames = [];
+      angular.forEach($scope.inputs, function(input) {
+        this.push(input.value);
+      }, usernames);
+
+      $q.when(validateUsers(usernames)).then(function(data){
+        if(data.status === 200){
+          // Success shizzle here
+        }
+
+        if(data.errors.length > 0){
+          angular.forEach(data.errors, function(error) {
+            angular.forEach($scope.inputs, function(input) {
+              if(input.value === error){
+                input.error = true;
+              }
+            });
+          });
+        }
+      });
     };
   }
 

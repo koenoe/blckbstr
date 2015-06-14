@@ -5,53 +5,48 @@
   // $http, $location, $q, exception, logger
   function dataservice($http, $location, $q, exception) {
 
+    var apiUrl = 'http://localhost:3000/v1/';
+
     function getRandomMovie() {
 
       // data, status, headers, config
-      function getRandomMovieComplete(data) {
+      function getRandomMovieSuccess(data) {
         return data.data;
       }
 
-      return $http.get('http://localhost:3000/v1/movies/random')
-        .then(getRandomMovieComplete)
-        .catch(function(message) {
-          exception.catcher('XHR Failed for getRandomMovie')(message);
-          // $location.url('/');
-        });
-    }
-
-    function prime() {
-
-      function success() {
-        isPrimed = true;
-        // logger.info('Primed data');
+      function getRandomMovieError(message) {
+        exception.catcher('XHR Failed for getRandomMovie')(message);
       }
 
-      // This function can only be called once.
-      if (primePromise) {
-        return primePromise;
+      return $http.get(apiUrl + 'movies/random')
+        .then(getRandomMovieSuccess)
+        .catch(getRandomMovieError);
+    }
+
+    function validateUsers(usernames){
+
+      // data, status, headers, config
+      function validateUsersSuccess(data) {
+        return data.data;
       }
 
-      primePromise = $q.when(true).then(success);
-      return primePromise;
+      function validateUsersError(data) {
+        return data.data;
+      }
+
+      return $http.get(apiUrl + 'users/exist', {
+          params: {
+            'usernames[]': usernames
+          }
+        })
+        .then(validateUsersSuccess)
+        .catch(validateUsersError);
     }
 
-    function ready(nextPromises) {
-      var readyPromise = primePromise || prime();
-
-      return readyPromise
-        .then(function() { return $q.all(nextPromises); })
-        .catch(exception.catcher('"ready" function failed'));
-    }
-
-    var isPrimed = false,
-        primePromise,
-        service = {
-          getRandomMovie: getRandomMovie,
-          ready: ready
-        };
-
-    return service;
+    return {
+      getRandomMovie: getRandomMovie,
+      validateUsers: validateUsers
+    };
   }
 
   angular

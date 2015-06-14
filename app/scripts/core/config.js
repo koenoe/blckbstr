@@ -11,12 +11,6 @@
     // Configure the common route provider
     routehelperConfigProvider.config.$routeProvider = $routeProvider;
     routehelperConfigProvider.config.docTitle = 'BLCKBSTR: ';
-    var resolveAlways = { /* @ngInject */
-      ready: function(dataservice) {
-        return dataservice.ready();
-      }
-    };
-    routehelperConfigProvider.config.resolveAlways = resolveAlways;
 
     // Configure the common exception handler
     exceptionHandlerProvider.configure(config.appErrorPrefix);

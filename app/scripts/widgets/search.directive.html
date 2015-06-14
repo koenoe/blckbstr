@@ -1,13 +1,15 @@
 <div class="search-box">
   <form ng-submit="submit()">
-    <div class="search-box__input" ng-class="{'animated': input.type == 'min'}" ng-repeat="input in inputs">
-      <input type="text" placeholder="Letterboxd username" ng-model="username" ng-change="userExist(username)">
-      <div ng-if="input.type == 'plus'">
-        <button type="button" ng-click="addInput()" ng-if="inputs.length < 4">+</button>
-      </div>
-      <div ng-if="input.type == 'min'">
-        <button type="button" ng-click="removeInput($index)">-</button>
-      </div>
+    <div class="search-box__input" ng-class="{'animated': input.type == 'min', 'animated wobble': input.error}" ng-repeat="input in inputs">
+      <ng-form name="input-form">
+        <input type="text" placeholder="Letterboxd username" name="username" ng-model="input.value">
+        <div ng-if="input.type == 'plus'">
+          <button type="button" ng-click="addInput()" ng-if="inputs.length < 4">+</button>
+        </div>
+        <div ng-if="input.type == 'min'">
+          <button type="button" ng-click="removeInput($index)">-</button>
+        </div>
+      </ng-form>
     </div>
     <button type="submit" class="btn"><i class="icon-search"></i>Give me advice</button>
   </form>
