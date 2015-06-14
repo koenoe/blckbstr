@@ -52,6 +52,8 @@
       $q.when(validateUsers(usernames)).then(function(data){
         if(data.status === 200){
           // Success shizzle here
+
+          return console.log('Form submit handling here');
         }
 
         if(data.errors.length > 0){
