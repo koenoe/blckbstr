@@ -1,6 +1,6 @@
 <div class="search-box">
   <form ng-submit="submit()">
-    <div class="search-box__input" ng-class="{'animated': input.type == 'min', 'animated wobble': input.error}" ng-repeat="input in inputs">
+    <div class="search-box__input" ng-class="{'animated': input.type == 'min', 'animated shake': input.error}" ng-repeat="input in inputs">
       <ng-form name="input-form">
         <input type="text" placeholder="Letterboxd username" name="username" ng-model="input.value">
         <div ng-if="input.type == 'plus'">

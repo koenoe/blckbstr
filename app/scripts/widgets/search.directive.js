@@ -41,9 +41,11 @@
 
     $scope.submit = function(){
 
-      // Get usernames from input
       var usernames = [];
       angular.forEach($scope.inputs, function(input) {
+        // Reset error so it will animate again
+        input.error = false;
+        // We only need username from the input object for validation in our dataservice
         this.push(input.value);
       }, usernames);
 
