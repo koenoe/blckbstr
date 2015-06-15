@@ -34,7 +34,7 @@
         return data.data;
       }
 
-      return $http.get(apiUrl + 'users/exist', {
+      return $http.get(apiUrl + 'users/validate', {
           params: {
             'usernames[]': usernames
           }

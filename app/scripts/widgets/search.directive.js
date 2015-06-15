@@ -21,6 +21,8 @@
       return dataservice.validateUsers(usernames);
     }
 
+    $scope.needsToSync = false;
+
     $scope.inputs = [{
       type: 'plus',
       value: '',
