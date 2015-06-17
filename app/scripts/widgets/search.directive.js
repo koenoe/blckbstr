@@ -21,8 +21,6 @@
       return dataservice.validateUsers(usernames);
     }
 
-    $scope.needsToSync = false;
-
     $scope.inputs = [{
       type: 'plus',
       value: '',
@@ -41,22 +39,38 @@
       $scope.inputs.splice(index, 1);
     };
 
+    $scope.mail = function(){
+      console.log('Mail advice!', $scope);
+    };
+
     $scope.submit = function(){
 
-      var usernames = [];
+      $scope.mailForm = false;
+      $scope.usernames = [];
+
       angular.forEach($scope.inputs, function(input) {
         // Reset error so it will animate again
         input.error = false;
         // We only need username from the input object for validation in our dataservice
         this.push(input.value);
-      }, usernames);
+      }, $scope.usernames);
 
-      $q.when(validateUsers(usernames)).then(function(data){
+      // Validate all the users if they're valid Letterboxd users
+      $q.when(validateUsers($scope.usernames)).then(function(data){
         if(data.status === 200){
-          // Success shizzle here
-          return console.log('Form submit handling here');
+          $scope.mailForm = data.needs_to_sync;
+
+          // If the data needs to be synced, we will need extra information for our mail so please show that form
+          if($scope.mailForm === true){
+            return false;
+          }
+
+          // Form handling here
+          console.log('Show advice!', $scope);
+          return true;
         }
 
+        // We have errors, so set the right inputs to an error state in order to do something with it in our view
         if(data.errors.length > 0){
           angular.forEach(data.errors, function(error) {
             angular.forEach($scope.inputs, function(input) {
