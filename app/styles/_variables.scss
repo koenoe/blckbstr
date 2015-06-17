@@ -56,13 +56,14 @@ $font-size-h4:            ceil(($font-size-base * 1.5)); // ~18px
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.5;
 
-$border-s:        	1px;
-$border-m:		  	$border-s * 2;
+$border-s:       1px;
+$border-m:		  $border-s * 2;
 $border-l:			$border-s * 4;
 
-$radius-s:        	1px;
-$radius-m:		  	$radius-s * 2;
+$radius-s:      1px;
+$radius-m:		  $radius-s * 2;
 $radius-l:			$radius-s * 4;
+$radius-full:    50%;
 
 //== Grid system
 //

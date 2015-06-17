@@ -12,11 +12,17 @@
     position: absolute;
     background-image: url(https://image.tmdb.org/t/p/original/9X3cDZb4GYGQeOnZHLwMcCFz2Ro.jpg);
     height: 80%;
-    box-shadow: inset 0 -100px 175px 0 rgba(#000,0.75);
+    box-shadow: inset 0 -100px 175px 0 #000;
     z-index: -1;
 
     &:before {
-      opacity: 0.5;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(#000, 0.4);
     }
   }
 }
