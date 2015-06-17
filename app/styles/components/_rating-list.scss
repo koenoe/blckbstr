@@ -1,0 +1,27 @@
+.rating-list {
+
+  &__item {
+    @include transition(opacity 0.2s);
+    opacity: 0.4;
+    margin-bottom: $distance-s;
+    text-align: right;
+
+
+    &:hover {
+      opacity: 0.99;
+      cursor: pointer;
+    }
+  }
+
+  &__bar {
+    height: 6px;
+    background: rgba(#fff, 0.4);
+    border-radius: $radius-m;
+
+    &__fill {
+      background: $brand-primary;
+      height: inherit;
+      border-radius: inherit;
+    }
+  }
+}

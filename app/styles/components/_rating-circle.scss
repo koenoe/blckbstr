@@ -1,4 +1,4 @@
-.rating {
+.rating-circle {
   $circle-size: 124px;
   $circle-background: radial-gradient(#000000 88px, #877a81 96px, #eee7ef 97px, #18181c 99px);
   $inset-size: 90px;
@@ -10,8 +10,9 @@
 
   width:  $circle-size;
   height: $circle-size;
+  margin-top: 1.5em;
 
-  border-radius: 50%;
+  border-radius: $radius-full;
   .circle {
     
     .mask, 

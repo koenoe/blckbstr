@@ -18,6 +18,12 @@ body {
   flex-direction: column;
 }
 
+img {
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
 .view {
   flex: 1 0 auto;
   width: 100%;
