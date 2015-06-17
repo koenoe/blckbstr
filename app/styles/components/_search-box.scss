@@ -26,10 +26,10 @@
     border-bottom: 1px solid #fff;
     margin-bottom: 10px;
 
-    &.ng-enter-active {
+    &.ng-enter {
       @extend .bounceIn;
     }
-    &.ng-leave-active {
+    &.ng-leave {
       @extend .bounceOut;
     }
 
