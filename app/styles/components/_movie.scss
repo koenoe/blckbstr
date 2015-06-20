@@ -3,7 +3,7 @@
 
   &__backdrop {
     right: 0;
-    bottom: 0;
+    bottom: 20%;
     left: 0;
     top: 0;
     background-size: cover;
@@ -11,7 +11,7 @@
 
     position: absolute;
     background-image: url(https://image.tmdb.org/t/p/original/9X3cDZb4GYGQeOnZHLwMcCFz2Ro.jpg);
-    height: 80%;
+    //height: 80%;
     box-shadow: inset 0 -100px 175px 0 #000;
     z-index: -1;
 

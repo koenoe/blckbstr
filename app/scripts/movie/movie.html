@@ -5,61 +5,35 @@
       <div class="row">
         <div class="col-xs-12 col-lg-7">
           <div class="movie__title">
-            <h1>
-              Ex Machina
-            </h1>
-            <div class="h3">
-            (2015)
-            </div>
+            <h1>{{mv.title}}</h1>
+            <div class="h3">{{mv.year}}</div>
           </div>
           <div class="movie__subheader">
             <btn class="btn">
               PG-13
             </btn>
-            <p>
-              Directed by Alex Garland
-            </p>
+            <p>Directed by {{mv.director}}</p>
           </div>
         </div>
         <div class="col-xs-12 col-lg-3">
-          <div class="rating-list">
+          <div class="rating-list" ng-show="mv.ratings">
             <ul class="list-unstyled">
-              <li class="rating-list__item">
+              <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating(rating.rating, $index)" ng-repeat="rating in mv.ratings">
                 <span class="rating-list__label">
-                  Letterboxd - 5.320 votes
+                  {{rating.name}} - {{rating.num|number}} votes
                 </span>
                 <div class="rating-list__bar">
-                  <div class="rating-list__bar__fill" style="width: 71%">
-                    <span class="visuallyhidden">71%</span>
+                  <div class="rating-list__bar__fill" style="width: {{rating.rating}}%">
+                    <span class="visuallyhidden">{{rating.rating}}%</span>
                   </div>
                 </div>
               </li>
-              <li class="rating-list__item">
-                <span class="rating-list__label">
-                  IMDb - 17.558 votes
-                </span>
-                <div class="rating-list__bar">
-                  <div class="rating-list__bar__fill" style="width: 87%">
-                    <span class="visuallyhidden">87%</span>
-                  </div>
-                </div>
-              </li>
-              <li class="rating-list__item">
-                <span class="rating-list__label">
-                  TMDb - 788 votes
-                </span>
-                <div class="rating-list__bar">
-                  <div class="rating-list__bar__fill" style="width: 79%">
-                    <span class="visuallyhidden">79%</span>
-                  </div>
-                </div>
-              </li>              
             </ul>
           </div>
         </div>
         <div class="col-xs-12  col-lg-2">
           <div class="f-right">
-            <div class="rating-circle" data-progress="79">
+            <div class="rating-circle" data-progress="{{mv.ratings[activeRating].rating}}">
               <div class="circle">
                 <div class="mask full">
                   <div class="fill">
@@ -74,7 +48,7 @@
               </div>
               <div class="inset">
                 <div class="percentage">
-                  8.0
+                  {{mv.ratings[activeRating].rating/10}}
                 </div>
               </div>
             </div>

@@ -13,8 +13,8 @@
         url: '/movie',
         config: {
           templateUrl: 'scripts/movie/movie.html',
-          controller: 'Movie',
-          controllerAs: 'vm'
+          controller: 'MovieController',
+          controllerAs: 'movie'
         }
       }
     ];
