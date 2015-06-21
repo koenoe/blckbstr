@@ -99,18 +99,24 @@
    ========================================================================== */
 
 .visible-sm {
+  display: none;
+
   @include respond-to(sm) {
       display: block;
   }
 }
 
 .visible-md {
+  display: none;
+
   @include respond-to(md) {
       display: block;
   }
 }
 
 .visible-lg {
+  display: none;
+  
   @include respond-to(lg) {
       display: block;
   }
