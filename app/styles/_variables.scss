@@ -77,6 +77,7 @@ $distance-s:                $distance / 2;
 $distance-m:                $distance;
 $distance-l:                $distance * 2;
 $distance-xl:               $distance * 4;
+$distance-xxl:              $distance * 8;
 
 // Large screen / wide desktop
 $container-large-desktop:      (1140px + $grid-gutter-width);

@@ -3,16 +3,16 @@
   $circle-background: radial-gradient(#000000 88px, #877a81 96px, #eee7ef 97px, #18181c 99px);
   $inset-size: 90px;
   $inset-background: radial-gradient(#ffff54 2px, #ff0000 8px, #ff0000 12px, #8d0000 28px, #220000 74px, #000000 77px, #281d1c 80px, #000000 83px);
-  $transition-length: 1s;
+  $transition-length: 0.2s;
   $percentage-color: rgba(0,0,0,0.13);
   $percentage-font-size: 22px;
   $percentage-text-width: 57px;
 
   width:  $circle-size;
   height: $circle-size;
-  margin-top: 1.5em;
-
+  margin: 0 auto;
   border-radius: $radius-full;
+  
   .circle {
     
     .mask, 
