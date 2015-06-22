@@ -1,26 +1,24 @@
 <div class="movie">
-  <div class="movie__backdrop"></div>
+  <div class="movie__backdrop" style="background-image: url({{vm.tmdb_backdrop_url}})"></div>
   <div class="container">
     <div class="movie__header">
       <div class="row center">
         <div class="col-xs-12 col-md-7">
           <div class="movie__title">
-            <h1>{{mv.title}}</h1>
-            <div class="h3">{{mv.year}}</div>
+            <h1>{{vm.title}}</h1>
+            <div class="h3">{{vm.release_year}}</div>
           </div>
           <div class="movie__subheader">
-            <btn class="btn">
-              PG-13
-            </btn>
-            <p>Directed by {{mv.director}}</p>
+            <btn class="btn">{{vm.certification}}</btn>
+            <p>Directed by {{vm.director}}</p>
           </div>
         </div>
         <div class="col-xs-12 col-md-5">
           <div class="row center">
             <div class="col-xs-12 col-lg-8">
-              <div class="rating-list" ng-show="mv.ratings">
+              <div class="rating-list" ng-show="vm.ratings">
                 <ul class="list-unstyled">
-                  <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating(rating.rating, $index)" ng-repeat="rating in mv.ratings">
+                  <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating(rating.rating, $index)" ng-repeat="rating in vm.ratings">
                     <span class="rating-list__label">
                       {{rating.name}} &dash; {{rating.num|number}} votes
                     </span>
@@ -34,7 +32,7 @@
               </div>
             </div>
             <div class="col-xs-12 col-lg-4">
-              <div class="rating-circle" data-progress="{{mv.ratings[activeRating].rating}}">
+              <div class="rating-circle" data-progress="{{vm.ratings[activeRating].rating}}">
                 <div class="circle">
                   <div class="mask full">
                     <div class="fill">
@@ -49,11 +47,11 @@
                 </div>
                 <div class="inset">
                   <div class="percentage">
-                    {{mv.ratings[activeRating].rating/10}}
+                    {{vm.ratings[activeRating].rating/10}}
                   </div>
                 </div>
               </div>
-            </div>           
+            </div>
           </div>
         </div>
       </div>
@@ -61,21 +59,17 @@
     <div class="row">
       <div class="col-xs-12 col-lg-2">
         <div class="movie__poster">
-          <img src="https://image.tmdb.org/t/p/w396/iXWt1prw5xbpjf3hmOm8Fo3dFa.jpg"/>
+          <img src="{{vm.tmdb_poster_url}}">
         </div>
       </div>
       <div class="col-xs-12 col-lg-10">
         <div class="movie__overview">
-          <p class="movie__tagline">
-            There Is Nothing More Human Than The Will To Survive
-          </p>
-          <p class="movie__description">
-            Caleb, a 24 year old coder at the world's largest internet company, wins a competition to spend a week at a private mountain retreat belonging to Nathan, the reclusive CEO of the company. But when Caleb arrives at the remote location he finds that he will have to participate in a strange and fascinating experiment in which he must interact with the world's first true artificial intelligence, housed in the body of a beautiful robot girl.
-          </p>
+          <p class="movie__tagline">{{vm.tagline}}</p>
+          <p class="movie__description">{{vm.plot}}</p>
           <div class="row">
             <div class="col-xs-12 col-md-6">
               <div class="movie__details">
-                <strong>Runtime</strong> 108 minutes
+                <strong>Runtime</strong> {{vm.runtime}} minutes
               </div>
             </div>
             <div class="col-xs-12 col-md-6 text-right">
@@ -196,8 +190,7 @@
         <div class="box box--secondary">
           <div class="box__content">
             <div class="fluid-video">
-              <iframe src="//www.youtube.com/embed/EoQuVnKhxaM?rel=0&amp;showinfo=0&amp;controls=2&amp;html5=1">
-              </iframe>
+              <iframe src="{{vm.trailer_url}}"></iframe>
             </div>
           </div>
         </div>

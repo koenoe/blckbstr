@@ -2,11 +2,22 @@
   'use strict';
 
   /* @ngInject */
-  function configure ($locationProvider, $logProvider, $routeProvider, routehelperConfigProvider, exceptionHandlerProvider) {
+  function configure ($locationProvider, $logProvider, $routeProvider, $sceDelegateProvider, routehelperConfigProvider, exceptionHandlerProvider) {
     // turn debugging off/on (no info or warn)
     if ($logProvider.debugEnabled) {
       $logProvider.debugEnabled(true);
     }
+
+    // Whitelist external urls
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+
+      'http://www.youtube.com/**',
+      'http://letterboxd.com/**',
+      'http://www.imdb.com/**',
+      'http://image.tmdb.org/**'
+    ]);
 
     // Enable html 5 routing instead of hashtags
     $locationProvider.html5Mode(true);

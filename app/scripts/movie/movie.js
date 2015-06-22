@@ -3,41 +3,70 @@
 
   // $q, dataservice, logger
   /* @ngInject */
-  function MovieController($scope) {
+  function Movie($scope, $q, $routeParams, dataservice) {
+
+    var vm = this;
+
+    // $sceProvider.enabled(false);
+
     $scope.activeRating = 0;
+
+    function activate(){
+      var promises = [getAdvice($routeParams.slug)];
+      return $q.all(promises).then(function() {
+
+        // TO DO: Everything done, do something
+
+      });
+
+      // vm.title = 'Ex Machina';
+      // vm.year = 2015;
+      // vm.director = 'Alex Garland';
+      // vm.ratings = [{
+      //   name: 'Letterboxd',
+      //   num: 4033,
+      //   rating: 81
+      // },
+      // {
+      //   name: 'IMDb',
+      //   num: 37905,
+      //   rating: 79
+      // },
+      // {
+      //   name: 'TMDb',
+      //   num: 123,
+      //   rating: 71
+      // }];
+    }
+
+    function getAdvice(hash) {
+      return dataservice.getAdvice(hash).then(function(data) {
+        if(data.status === 200){
+          var movie = data.movie;
+
+          angular.forEach(movie, function(value, key) {
+            vm[key] = value;
+          });
+
+          return data;
+        }
+        return false;
+      });
+    }
 
     $scope.isActive = function(index) {
       return index === $scope.activeRating;
-    }
+    };
 
     $scope.selectRating = function(rating, index) {
       $scope.activeRating = index;
     };
 
-    $scope.mv = {
-      title: 'Ex Machina',
-      year: 2015,
-      director: 'Alex Garland',
-      ratings: [{
-        name: 'Letterboxd',
-        num: 4033,
-        rating: 81
-      }, 
-      {
-        name: 'IMDb',
-        num: 37905,
-        rating: 79
-      }, 
-      {
-        name: 'TMDb',
-        num: 123,
-        rating: 71       
-      }]
-    };
+    activate();
   }
 
   angular
     .module('app.movie')
-    .controller('MovieController', MovieController);
+    .controller('Movie', Movie);
 
 })();

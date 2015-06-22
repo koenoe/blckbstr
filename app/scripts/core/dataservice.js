@@ -53,7 +53,7 @@
         exception.catcher('XHR Failed for creating advice')(message);
       }
 
-      return $http.post(apiUrl + 'advices/create', {
+      return $http.post(apiUrl + 'advices', {
           'usernames': data.usernames,
           'email': data.email
         })
@@ -61,10 +61,25 @@
         .catch(createAdviceError);
     }
 
+    function getAdvice(hash){
+      function getAdviceSuccess(data) {
+        return data.data;
+      }
+
+      function getAdviceError(message) {
+        exception.catcher('XHR Failed for retrieving advice: ')(message);
+      }
+
+      return $http.get(apiUrl + 'advices/' + hash)
+        .then(getAdviceSuccess)
+        .catch(getAdviceError);
+    }
+
     return {
       getRandomMovie: getRandomMovie,
       validateUsers: validateUsers,
-      createAdvice: createAdvice
+      createAdvice: createAdvice,
+      getAdvice: getAdvice
     };
   }
 

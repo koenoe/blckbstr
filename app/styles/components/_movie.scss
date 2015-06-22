@@ -13,7 +13,6 @@
     background-size: cover;
     background-position: center top;
     position: absolute;
-    background-image: url(https://image.tmdb.org/t/p/original/9X3cDZb4GYGQeOnZHLwMcCFz2Ro.jpg);
     //height: 80%;
     box-shadow: inset 0 -100px 175px 0 #000;
     z-index: -1;
@@ -88,7 +87,7 @@
 .movie__poster {
   margin-bottom: $distance-l;
   text-align: center;
-  
+
   img {
     max-width: 60%;
     border-radius: $radius-l;
