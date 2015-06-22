@@ -18,25 +18,6 @@
         // TO DO: Everything done, do something
 
       });
-
-      // vm.title = 'Ex Machina';
-      // vm.year = 2015;
-      // vm.director = 'Alex Garland';
-      // vm.ratings = [{
-      //   name: 'Letterboxd',
-      //   num: 4033,
-      //   rating: 81
-      // },
-      // {
-      //   name: 'IMDb',
-      //   num: 37905,
-      //   rating: 79
-      // },
-      // {
-      //   name: 'TMDb',
-      //   num: 123,
-      //   rating: 71
-      // }];
     }
 
     function getAdvice(hash) {
@@ -47,6 +28,23 @@
           angular.forEach(movie, function(value, key) {
             vm[key] = value;
           });
+
+          // FIX ME: dummy ratings
+          vm.ratings = [{
+            name: 'Letterboxd',
+            num: 4033,
+            rating: 81
+          },
+          {
+            name: 'IMDb',
+            num: 37905,
+            rating: 79
+          },
+          {
+            name: 'TMDb',
+            num: 123,
+            rating: 71
+          }];
 
           return data;
         }
