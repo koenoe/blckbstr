@@ -34,13 +34,6 @@ $fg-gutter: 30px !default;
  *
  */
 
-// $fg-breakpoints: (
-//   (xs),
-//   (sm, 768),
-//   (md, 992px),
-//   (lg, 1200px)
-// ) !default;
-
 $fg-breakpoints: (
   xs: 0,
   sm: 767px,
@@ -100,13 +93,20 @@ $fg-breakpoints: (
   &.reverse {
     flex-direction: row-reverse;
   }
+
+  &.center {
+    align-items: center;
+  }
 }
 
+/**
+ * Col classes, flex box children.
+ */
 
-%col {
+[class^="col-"] {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   @include spacing(($fg-gutter/2), padding, horizontal);
 
   &.stretch {
@@ -115,22 +115,16 @@ $fg-breakpoints: (
   }
 }
 
+.col-fluid {
+  flex-grow: 1;
+}
+
 /**
  * Generate a set of grid column classes using a namespace
  *
  * .col-[namespace] for intelligent column division
  * .col-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
- * .off-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
  */
-
-@mixin grid-base($namespace) {
-
-  @for $i from 1 through $fg-columns {
-    .col-#{$namespace}-#{$i} {
-      @extend %col;
-    }
-  }
-}
 
 @mixin grid-sizes($namespace) {
 
@@ -138,21 +132,8 @@ $fg-breakpoints: (
   @for $i from 1 through $fg-columns {
     .col-#{$namespace}-#{$i} {
       flex-basis: get-col-percent($i);
-      max-width:  get-col-percent($i);
     }
   }
-
-  @for $i from 1 through $fg-columns {
-    
-    // Don't include the .off class for the last column
-    @if ( $i != $fg-columns ) { 
-      .off-#{$namespace}-#{$i} {
-        margin-left: get-col-percent($i);
-      }
-    }
-
-  }
-
 }
 
 /**
@@ -160,12 +141,6 @@ $fg-breakpoints: (
  * Step 1, for each namespace, create the grid-base
  * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
  */
-@each $val in $fg-breakpoints {
-
-  $namespace: nth($val, 1);
-  @include grid-base($namespace);
-
-}
 
 @each $val in $fg-breakpoints {
   @if length($val) == 1 {

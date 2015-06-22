@@ -1,4 +1,5 @@
 .box {
+  flex-basis: 100%;
   margin-top: $grid-gutter-width;
   background: #383838;
   position: relative;
@@ -49,16 +50,18 @@
   }
 
   &.bubble-right {
-    &:after {
-      position: absolute;
-      content: '';
-      top: $grid-gutter-width;
-      right: -10px;
-      width: $grid-gutter-width;
-      height: $grid-gutter-width;
-      z-index: -1;
-      background: inherit; // same as box bg color
-      transform: rotate(45deg);
+    @include respond-to(md) {
+      &:after {
+        position: absolute;
+        content: '';
+        top: $grid-gutter-width;
+        right: -10px;
+        width: $grid-gutter-width;
+        height: $grid-gutter-width;
+        z-index: -1;
+        background: inherit; // same as box bg color
+        transform: rotate(45deg);
+      }
     }
   }
 

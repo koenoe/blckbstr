@@ -1,17 +1,20 @@
 .movie {
-  padding: 132px 0;
+  padding: $distance-xl 0;
+
+  @include respond-to(md) {
+    padding: $distance-xxl 0;
+  }
 
   &__backdrop {
     right: 0;
-    bottom: 0;
+    bottom: 50%;
     left: 0;
     top: 0;
     background-size: cover;
     background-position: center top;
-
     position: absolute;
     background-image: url(https://image.tmdb.org/t/p/original/9X3cDZb4GYGQeOnZHLwMcCFz2Ro.jpg);
-    height: 80%;
+    //height: 80%;
     box-shadow: inset 0 -100px 175px 0 #000;
     z-index: -1;
 
@@ -23,6 +26,10 @@
       width: 100%;
       height: 100%;
       background: rgba(#000, 0.4);
+    }
+
+    @include respond-to(md) {
+      bottom: 20%;
     }
   }
 }
@@ -54,19 +61,13 @@
   }
 }
 
-.movie__overview {
-  strong {
-    margin-right: 30px;
-  }
-}
-
 .movie__description {
-  margin-bottom: 20px;
+  margin-bottom: $distance-m;
 }
 
 .movie__details {
   strong {
-    padding-right: 12px;
+    padding-right: $distance-l;
   }
 }
 
@@ -85,10 +86,16 @@
 }
 
 .movie__poster {
-
+  margin-bottom: $distance-l;
+  text-align: center;
+  
   img {
-    max-width: 100%;
+    max-width: 60%;
     border-radius: $radius-l;
+
+    @include respond-to(md) {
+      max-width: 100%;
+    }
   }
 }
 
