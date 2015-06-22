@@ -2,7 +2,7 @@
   <form ng-submit="submit()" ng-hide="mailForm">
     <div class="search-box__input" ng-class="{'animated': input.type == 'min', 'animated shake': input.error}" ng-repeat="input in inputs">
       <ng-form name="input-form">
-        <input type="text" placeholder="Letterboxd username" name="username" autocomplete="off" ng-model="input.value" ng-required="input.type == 'plus'">
+        <input tabindex="{{$index+1}}" type="text" placeholder="Letterboxd username" name="username" autocomplete="off" ng-model="input.value" ng-required="input.type == 'plus'">
         <div ng-if="input.type == 'plus'">
           <button type="button" ng-click="addInput()" ng-if="inputs.length < 4">+</button>
         </div>

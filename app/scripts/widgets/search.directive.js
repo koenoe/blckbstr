@@ -32,7 +32,8 @@
     function createAdviceComplete(data){
       if(data.hash && data.status === 200){
         if(data.email === true){
-          // Show message here
+          // TO DO: create message email
+          console.log('Not possible to give advice immediately, show message of we will email it shortly.');
         } else {
           $location.path('/movie/' + data.hash);
         }
