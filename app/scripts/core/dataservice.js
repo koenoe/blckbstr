@@ -3,7 +3,7 @@
 
   /* @ngInject */
   // $http, $location, $q, exception, logger
-  function dataservice($http, $location, $q, exception) {
+  function dataservice($httpParamSerializerJQLike, $http, $location, $q, exception) {
 
     var apiUrl = 'http://localhost:3000/v1/';
 
@@ -43,9 +43,28 @@
         .catch(validateUsersError);
     }
 
+    function createAdvice(data){
+
+      function createAdviceSuccess(data) {
+        return data.data;
+      }
+
+      function createAdviceError(message) {
+        exception.catcher('XHR Failed for creating advice')(message);
+      }
+
+      return $http.post(apiUrl + 'advices/create', {
+          'usernames': data.usernames,
+          'email': data.email
+        })
+        .then(createAdviceSuccess)
+        .catch(createAdviceError);
+    }
+
     return {
       getRandomMovie: getRandomMovie,
-      validateUsers: validateUsers
+      validateUsers: validateUsers,
+      createAdvice: createAdvice
     };
   }
 

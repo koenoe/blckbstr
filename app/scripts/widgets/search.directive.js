@@ -4,6 +4,7 @@
 
   /* @ngInject */
   function search() {
+
     var directive = {
       restrict: 'EA',
       templateUrl: 'scripts/widgets/search.directive.html',
@@ -15,17 +16,40 @@
   }
 
   /* @ngInject */
-  function searchController($scope, $q, dataservice) {
+  function searchController($scope, $q, $location, dataservice) {
 
     function validateUsers(usernames) {
       return dataservice.validateUsers(usernames);
     }
 
-    $scope.inputs = [{
-      type: 'plus',
-      value: '',
-      error: false
-    }];
+    function createAdvice(usernames, email) {
+      return dataservice.createAdvice({
+        usernames: usernames,
+        email: email
+      });
+    }
+
+    function createAdviceComplete(data){
+      if(data.hash && data.status === 200){
+        if(data.email === true){
+          // Show message here
+        } else {
+          $location.path('/movie/' + data.hash);
+        }
+      }
+    }
+
+    function startCreatingAdvice(){
+      $q.when(createAdvice($scope.usernames, $scope.email)).then(createAdviceComplete);
+    }
+
+    function activate(){
+      $scope.inputs = [{
+        type: 'plus',
+        value: '',
+        error: false
+      }];
+    }
 
     $scope.addInput = function() {
       $scope.inputs.push({
@@ -40,7 +64,7 @@
     };
 
     $scope.mail = function(){
-      console.log('Mail advice!', $scope);
+      startCreatingAdvice();
     };
 
     $scope.submit = function(){
@@ -65,9 +89,7 @@
             return false;
           }
 
-          // Form handling here
-          console.log('Show advice!', $scope);
-          return true;
+          return startCreatingAdvice();
         }
 
         // We have errors, so set the right inputs to an error state in order to do something with it in our view
@@ -82,6 +104,8 @@
         }
       });
     };
+
+    activate();
   }
 
   angular

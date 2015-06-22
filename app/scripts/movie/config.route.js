@@ -10,7 +10,7 @@
   function getRoutes() {
     return [
       {
-        url: '/movie',
+        url: '/movie/:slug',
         config: {
           templateUrl: 'scripts/movie/movie.html',
           controller: 'Movie',

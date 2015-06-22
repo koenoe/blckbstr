@@ -2,11 +2,14 @@
   'use strict';
 
   /* @ngInject */
-  function configure ($logProvider, $routeProvider, routehelperConfigProvider, exceptionHandlerProvider) {
+  function configure ($locationProvider, $logProvider, $routeProvider, routehelperConfigProvider, exceptionHandlerProvider) {
     // turn debugging off/on (no info or warn)
     if ($logProvider.debugEnabled) {
       $logProvider.debugEnabled(true);
     }
+
+    // Enable html 5 routing instead of hashtags
+    $locationProvider.html5Mode(true);
 
     // Configure the common route provider
     routehelperConfigProvider.config.$routeProvider = $routeProvider;

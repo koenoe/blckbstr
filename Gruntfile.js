@@ -9,6 +9,8 @@
 
 module.exports = function (grunt) {
 
+  var modRewrite = require('connect-modrewrite');
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -20,7 +22,6 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -77,6 +78,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -96,6 +98,7 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect.static('test'),
               connect().use(
