@@ -10,7 +10,7 @@
           </div>
           <div class="movie__subheader">
             <btn class="btn">{{vm.certification}}</btn>
-            <p>Directed by {{vm.director}}</p>
+            <p>Directed by {{vm.director || '-'}}</p>
           </div>
         </div>
         <div class="col-xs-12 col-md-5">
@@ -73,10 +73,9 @@
               </div>
             </div>
             <div class="col-xs-12 col-md-6 text-right">
-              <h3 class="visuallyhidden">Genres</h3>
-              <div class="btn--group">
-                <button class="btn">Science ficton</button>
-                <button class="btn">Drama</button>
+              <h3 class="visuallyhidden" ng-if="vm.genres">Genres</h3>
+              <div class="btn--group" ng-if="vm.genres">
+                <button class="btn" ng-repeat="genre in vm.genres">{{genre.title}}</button>
               </div>
             </div>
           </div>
@@ -93,49 +92,32 @@
             <h3 class="box__subtitle">
               Director
             </h3>
-            Alex Garland
+            {{vm.director || '-'}}
             <h3 class="box__subtitle">
               Writer
             </h3>
-            Alex Garland
+            {{vm.writer || '-'}}
 
-            <div class="box__footer">
-              <btn class="btn">
+            <div class="box__footer" ng-if="vm.imdb_url">
+              <a class="btn" href="{{vm.imdb_url}}/fullcredits">
                 See full cast &amp; crew
-              </btn>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-4 col-md-3">
+      <div class="col-xs-4 col-md-3" ng-repeat="role in vm.movie_roles|limitTo:3">
         <div class="box">
           <div class="castitem">
-            <img src="https://image.tmdb.org/t/p/w396/8mgGT0ydyBlo0mDX59VMO3e13IW.jpg"/>
+            <img src="{{role.person.tmdb_profile_url}}">
             <div class="castitem__overlay">
               <div class="castitem__name">
                 <strong>
-                  Domhnall Gleeson
+                  {{role.person.name}}
                 </strong>
-                <br>
-                  as Caleb
-                </br>
+                <br> as {{role.character}}
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-md-3">
-        <div class="box">
-          <div class="castitem">
-            <img src="https://image.tmdb.org/t/p/w396/659AARwEB0xDNdQOr8exRXGk3jA.jpg"/>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-4 col-md-3">
-        <div class="box">
-          <div class="castitem">
-            <img src="https://image.tmdb.org/t/p/w396/5dAYYV83K3cvsjFqHLbruV3GBmx.jpg"/>
-
           </div>
         </div>
       </div>
@@ -149,7 +131,7 @@
                 <h2 class="box__header">
                   Release Date
                 </h2>
-                24 april 2015
+                {{vm.release_date}}
               </div>
             </div>
           </div>
@@ -168,7 +150,7 @@
                 <h2 class="box__header">
                   Country
                 </h2>
-                United Kingdom
+                <span ng-repeat="country in vm.countries">{{country.title}}<br></span>
               </div>
             </div>
           </div>
@@ -178,7 +160,10 @@
                 <h2 class="box__header">
                   Languages
                 </h2>
-                en, es, fr
+                <span ng-repeat="language in vm.languages">
+                  {{language.code}}
+                  <span ng-if="!$last">, </span>
+                </span>
               </div>
             </div>
           </div>
@@ -201,7 +186,7 @@
             <div class="box text-center">
               <div class="box__content">
                 <div class="box__value h1">
-                4
+                {{vm.oscars || 0}}
                 </div>
                 <span class="h4">
                   oscars
@@ -213,7 +198,7 @@
             <div class="box box--primary text-center">
               <div class="box__content">
                 <div class="box__value h1">
-                3
+                {{vm.wins || 0}}
                 </div>
                 <span class="h4">
                   wins
@@ -225,7 +210,7 @@
             <div class="box box--secondary text-center">
               <div class="box__content">
                 <div class="box__value h1">
-                8
+                {{vm.nominations || 0}}
                 </div>
                 <span class="h4">
                   nomina&shy;tions
@@ -242,7 +227,7 @@
                   Budget
                 </h4>
                 <div class="box__value h2">
-                $ 16,400,400
+                  {{vm.budget|currency}}
                 </div>
               </div>
             </div>
@@ -254,7 +239,7 @@
                   Revenue
                 </h4>
                 <div class="box__value h2">
-                $ 13,700,000
+                  {{vm.revenue|currency}}
                 </div>
               </div>
             </div>
@@ -277,15 +262,15 @@
         <div class="movie__footer">
          <h3>More information</h3>
           <div class="btn--group">
-            <button class="btn">
+            <a class="btn" href="{{vm.imdb_url}}" ng-if="vm.imdb_url">
               More details at IMDb
-            </button>
-            <button class="btn">
+            </a>
+            <a class="btn" href="{{vm.letterboxd_url}}" ng-if="vm.letterboxd_url">
               More details at Letterboxd
-            </button>
-            <button class="btn">
+            </a>
+            <a class="btn" href="{{vm.tmdb_url}}" ng-if="vm.tmdb_url">
               More details at TMDb
-            </button>
+            </a>
           </div>
         </div>
       </div>

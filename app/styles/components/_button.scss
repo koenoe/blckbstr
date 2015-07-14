@@ -9,6 +9,7 @@
   height: 50px;
   line-height: 50px;
   text-transform: uppercase;
+  text-decoration: none;
   font-size: $font-size-base;
   color: #fff;
   padding: 0 $distance-l;
@@ -22,6 +23,8 @@
 
   &:hover {
     background: rgba(#fff, 0.2);
+    text-decoration: inherit;
+    color: inherit;
   }
 
   &:focus {
