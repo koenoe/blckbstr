@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: center center;
 
   &__overlay {
     position: absolute;
@@ -17,23 +18,28 @@
 
   &__credits {
     position: absolute;
-    bottom: 50px;
-    left: 50px;
+    bottom: $distance-xl;
+    left: $distance-l;
+
+    @include respond-to(sm) {
+      bottom: $distance-l;
+    }
 
     &__label {
       @include font-semibold;
       text-transform: uppercase;
-      font-size: 18px;
+      font-size: $font-size-base;
       color: #6b6b6b;
-      margin-bottom: 10px;
+      margin-bottom: $distance-xs;
     }
 
     &__title {
-      font-size: 36px;
+      font-size: $font-size-h2;
+      line-height: 1;
 
       span {
-        font-size: 18px;
-        margin-left: 10px;
+        font-size: $font-size-base;
+        margin-left: $distance-xs;
         vertical-align: middle;
       }
     }
