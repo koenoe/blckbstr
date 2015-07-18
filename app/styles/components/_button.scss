@@ -39,7 +39,6 @@
 
   .btn--group & {
     display: block;
-    width: 100%; // http://stackoverflow.com/questions/9699039/button-with-displayblock-not-stretched
     margin-top: $distance-m;
 
     @include respond-to(sm) {
