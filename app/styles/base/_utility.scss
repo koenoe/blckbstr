@@ -98,45 +98,26 @@
     Responsive grid helpers
    ========================================================================== */
 
-.visible-sm {
-  display: none;
-
-  @include respond-to(sm) {
+@each $breakpoint, $value in $fg-breakpoints {
+  // Create 'visible' class for each breakpoint
+  .visible-#{$breakpoint} {
+    display: none;
+    
+    @include respond-to($breakpoint) {
       display: block;
+
+      // Display grid columns as flex items
+      &[class^="col-"] {
+        display: flex;
+      }
+    }
   }
-}
 
-.visible-md {
-  display: none;
-
-  @include respond-to(md) {
-      display: block;
-  }
-}
-
-.visible-lg {
-  display: none;
-
-  @include respond-to(lg) {
-      display: block;
-  }
-}
-
-.hidden-sm {
-  @include respond-to(sm) {
+  // Create 'hidden' class for each breakpoint
+  .hidden-#{$breakpoint} {
+    @include respond-to($breakpoint) {
       display: none;
-  }
-}
-
-.hidden-md {
-  @include respond-to(md) {
-      display: none;
-  }
-}
-
-.hidden-lg {
-  @include respond-to(lg) {
-      display: none;
+    }
   }
 }
 
