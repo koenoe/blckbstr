@@ -1,3 +1,5 @@
+//TO DO: refactor this!! SVG :)
+
 .rating-circle {
   $circle-size: 124px;
   $circle-background: radial-gradient(#000000 88px, #877a81 96px, #eee7ef 97px, #18181c 99px);
@@ -30,6 +32,7 @@
     }
 
     .mask {
+      overflow: hidden;
       clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
 
       .fill {

@@ -1,9 +1,11 @@
 .credits {
+  flex: 0 0 auto;
   position: relative;
   text-align: right;
   margin: $distance-m;
 
-  &,a {
+  &,
+  a {
     @include font-light;
     color: rgba(#fff, 0.4);
     font-size: 12px;
