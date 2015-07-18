@@ -118,9 +118,10 @@
   }
 }
 
-.castitem {
+.movie__castitem {
   position: relative;
   text-align: center;
+  overflow: hidden;
 
   img {
     max-width: 100%;
