@@ -1,18 +1,30 @@
 /* ==========================================================================
-   Fluid videos - https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+   Fluid video
+   Also see: https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
    ========================================================================== */
 
 .fluid-video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
+  @include center-content;
+    
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  .fluid-video__frame {
+    flex-basis: 100%;
+    position: relative;
+    padding-bottom: 56.25%; //16:9
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   }
 }

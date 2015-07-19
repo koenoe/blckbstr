@@ -11,6 +11,7 @@
 
     function activate(){
       var promises = [getAdvice($routeParams.slug)];
+      
       return $q.all(promises).then(function() {
 
         $scope.selectRating(0);
@@ -19,7 +20,7 @@
 
     function getAdvice(hash) {
       return dataservice.getAdvice(hash).then(function(data) {
-        if(data.status === 200){
+        if (data.status === 200) {
           var movie = data.movie;
 
           angular.forEach(movie, function(value, key) {
