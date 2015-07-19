@@ -17,36 +17,26 @@
           <div class="movie__rating">
             <div class="rating-list" ng-show="vm.ratings">
               <ul class="list-unstyled">
-                <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating(rating.rating, $index)" ng-repeat="rating in vm.ratings">
+                <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating($index)" ng-repeat="rating in vm.ratings">
                   <span class="rating-list__label">
                     {{rating.name}} &dash; {{rating.num|number}} votes
                   </span>
                   <div class="rating-list__bar">
-                    <div class="rating-list__bar__fill" style="width: {{rating.rating}}%">
+                    <div class="rating-list__bar__fill" style="width: {{rating.rating || 0}}%">
                       <span class="visuallyhidden">{{rating.rating}}%</span>
                     </div>
                   </div>
                 </li>
               </ul>
             </div>
-            <div class="rating-circle" data-progress="{{vm.ratings[activeRating].rating}}">
-              <div class="circle">
-                <div class="mask full">
-                  <div class="fill">
-                  </div>
-                </div>
-                <div class="mask half">
-                  <div class="fill">
-                  </div>
-                  <div class="fill fix">
-                  </div>
-                </div>
-              </div>
-              <div class="inset">
-                <div class="percentage">
-                  {{vm.ratings[activeRating].rating/10}}
-                </div>
-              </div>
+            <div class="rating-donut">
+              <span class="rating-donut__value">{{vm.ratings[vm.activeRating].rating/10|number:1 || ''}}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="rating-donut__canvas">
+                <g>
+                  <circle class="rating-donut__base"></circle>
+                  <circle id="js-donut" class="rating-donut__fill" stroke-dashoffset="{{vm.ratingCircumfence}}"></circle>
+                </g>
+              </svg>
             </div>
           </div>
         </div>
@@ -102,8 +92,8 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-4 col-md-3" ng-repeat="role in vm.movie_roles|limitTo:3">
-        <div class="box">
+      <div class="col-xs-4 col-md-3 stretch" ng-repeat="role in vm.movie_roles|limitTo:3">
+        <div class="box box--secondary">
           <div class="movie__castitem">
             <img src="{{role.person.tmdb_profile_url || 'https://goatmilk.files.wordpress.com/2008/07/batman2_narrowweb__300x4506.jpg'}}">
             <div class="movie__castitem__overlay">

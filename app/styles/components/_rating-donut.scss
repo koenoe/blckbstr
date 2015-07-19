@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Donut rating element (SVG)
+   Also see: http://codepen.io/JMChristensen/pen/Ablch/
+   ========================================================================== */
+
+$donut-width: 124px;
+$donut-stroke-width: 6px;
+$donut-radius: $donut-width / 2 - $donut-stroke-width;
+$donut-circumfence: 2 * 3.14159 *  $donut-radius;
+
+.rating-donut {
+  width: $donut-width;
+  height: $donut-width;
+  position: relative;
+
+  &__value {
+    @include center-content;
+    @include font-bold;
+
+    font-size: $font-size-h2;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__canvas {
+    width: $donut-width;
+    height: $donut-width;
+  }
+
+  &__base {
+    fill: none;
+    stroke: rgba(#fff, 0.4);
+    stroke-width: $donut-stroke-width;
+    cx: $donut-width / 2;
+    cy: $donut-width / 2;
+    r: $donut-radius;
+  }
+
+  &__fill {
+    @extend .rating-donut__base;
+    @include transition(all, 0.6s);
+
+    stroke: $brand-primary;
+    stroke-dasharray: $donut-circumfence; //pixel circumference of the circle
+  }
+}

@@ -9,14 +9,11 @@
 
     // $sceProvider.enabled(false);
 
-    $scope.activeRating = 0;
-
     function activate(){
       var promises = [getAdvice($routeParams.slug)];
       return $q.all(promises).then(function() {
 
-        // TO DO: Everything done, do something
-
+        $scope.selectRating(0);
       });
     }
 
@@ -33,17 +30,17 @@
           vm.ratings = [{
             name: 'Letterboxd',
             num: 4033,
-            rating: 81
+            rating: 62
           },
           {
             name: 'IMDb',
             num: 37905,
-            rating: 79
+            rating: 50
           },
           {
             name: 'TMDb',
             num: 123,
-            rating: 71
+            rating: 88
           }];
 
           return data;
@@ -53,11 +50,19 @@
     }
 
     $scope.isActive = function(index) {
-      return index === $scope.activeRating;
+      return index === vm.activeRating;
     };
 
-    $scope.selectRating = function(rating, index) {
-      $scope.activeRating = index;
+    $scope.selectRating = function(index) {
+      // Set active rating
+      vm.activeRating = index;
+
+      // Calculate circumfence for active rating
+      var r = parseInt($('#js-donut').css('r')),
+          c = Math.PI * (r * 2),
+          value = vm.ratings[index].rating;
+
+      vm.ratingCircumfence = c * (100 - value) / 100;
     };
 
     activate();

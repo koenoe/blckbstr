@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Movie detail
+   ========================================================================== */
+
 .movie {
   padding-top: $distance-xl;
   padding-bottom: $distance-l;
@@ -70,7 +74,7 @@
     padding-right: $distance-l; 
   }
 
-  .rating-circle {
+  .rating-donut {
     flex: 0 0 124px;
   }
 }
