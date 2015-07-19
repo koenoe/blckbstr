@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Mixin for placeholder
+   ========================================================================== */
+
 @mixin placeholder {
   &::-webkit-input-placeholder {@content}
   &:-moz-placeholder           {@content}

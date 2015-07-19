@@ -54,17 +54,13 @@
    Common helpers
    ========================================================================== */
 
-/*
- * Clearfix: contain floats
- */
+/* Clearfix: contain floats */
 
 .clearfix {
   @include clearfix;
 }
 
-/*
- * Hide visually and from screen readers:
- */
+/* Hide visually and from screen readers */
 
 .hidden {
   display: none !important;
@@ -99,6 +95,7 @@
    ========================================================================== */
 
 @each $breakpoint, $value in $fg-breakpoints {
+
   // Create 'visible' class for each breakpoint
   .visible-#{$breakpoint} {
     display: none;

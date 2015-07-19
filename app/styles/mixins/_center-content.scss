@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Mixin for vertical aligning content
+   ========================================================================== */
+
 @mixin center-content {
   display: flex;
   align-items: center;
