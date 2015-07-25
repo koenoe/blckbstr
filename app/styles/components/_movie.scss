@@ -3,13 +3,8 @@
    ========================================================================== */
 
 .movie {
-  padding-top: $distance-xl;
-  padding-bottom: $distance-l;
-
-  @include respond-to(md) {
-    padding-top: $distance-xxl;
-    padding-bottom: $distance-xl;
-  }
+  padding-top: $distance-xxl;
+  padding-bottom: $distance-xl;
 
   &__backdrop {
     right: 0;
@@ -40,26 +35,31 @@
 
 .movie__header {
   border-bottom: 1px solid rgba(#fff, 0.4);
-  padding-bottom: $grid-gutter-width;
-  margin-bottom: $grid-gutter-width;
+  padding-bottom: $fg-gutter;
+  margin-bottom: $fg-gutter;
 }
 
 .movie__title {
   h1 {
     @include font-bold;
+
     display: inline-block;
-    margin: 0;
+    margin: 0 $distance-m 0 0;
   }
 
-  .h3 {
-    margin-left: 20px;
+  span {
+    @include font-normal;
+
+    font-size: $font-size-h1 / 2.5;
     display: inline-block;
   }
 }
 
 .movie__subheader {
+  margin-top: $distance-m;
+
   p {
-    margin-left: 20px;
+    margin: 0 0 0 $distance-m;
     text-transform: uppercase;
     display: inline-block;
   }
@@ -71,7 +71,7 @@
 
   .rating-list {
     flex: 1 0;
-    padding-right: $distance-l; 
+    padding-right: $distance-l;
   }
 
   .rating-donut {
@@ -80,30 +80,36 @@
 }
 
 .movie__plot {
-  margin-bottom: $distance-l;
+  margin: 0 0 $distance-l 0;
+  line-height: 1.6;
 }
 
 .movie__details {
   strong {
+    @include font-semibold;
+
     padding-right: $distance-l;
   }
 }
 
 .movie__tagline {
+  @include font-light;
+
   text-transform: uppercase;
-  margin-top: 0;
+  margin: 0 0 $distance-m 0;
+  font-size: $font-size-larger;
 }
 
 .movie__footer {
   border-top: 1px solid rgba(#fff, 0.4);
-  margin-top: $grid-gutter-width;
+  margin-top: $fg-gutter;
 
   @include respond-to(md) {
-    margin-top: $grid-gutter-width * 2;
+    margin-top: $fg-gutter * 2;
   }
 
   .h3 {
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $fg-gutter;
   }
 }
 

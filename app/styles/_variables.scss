@@ -1,7 +1,7 @@
 /* ==========================================================================
    Variables
    ========================================================================== */
-   
+
 // Colors
 $gray-base:              #000;
 $gray-darker:            lighten($gray-base, 13.5%);
@@ -24,11 +24,11 @@ $body-bg:               #000;
 $text-color:            #f9f9f9;
 
 //** Global textual link color.
- $link-color:            $brand-primary;
+$link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
- $link-hover-color:      darken($link-color, 15%);
+$link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
- $link-hover-decoration: underline;
+$link-hover-decoration: underline;
 
 //== Typography
 //
@@ -41,6 +41,7 @@ $font-family-sans-serif:  'Source Sans Pro', sans-serif;
 $font-family-base:        $font-family-sans-serif;
 
 $font-size-base:          16px;
+$font-size-larger:        ceil(($font-size-base * 1.30));
 $font-size-large:         ceil(($font-size-base * 1.25)); // ~20px
 $font-size-small:         ceil(($font-size-base * 0.85)); // ~14px
 $font-size-smaller:       ceil(($font-size-base * 0.80)); // ~12px
@@ -65,28 +66,44 @@ $radius-m:		  $radius-s * 2;
 $radius-l:			$radius-s * 4;
 $radius-full:    50%;
 
-//== Grid system
-//
-//** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         30px;
+/**
+ * Grid setup
+ *
+ * The grid will calculate dimensions based on these two variables
+ * $fg-columns will inform the grid loops how many columns there should be.
+ * $fg-gutter will inform the grid loops how big eac column's gutters should be.
+ */
+$fg-columns: 12 !default;
+$fg-gutter: 30px !default;
 
-$distance:                  $grid-gutter-width / 2;
+/**
+ * Break point namespace object
+ *
+ * Set the default namespace object with these defaults with the
+ * understanding that you can pass in whatever you might require for your site.
+ *
+ * $fg-breakpoints is a Sass list with nested lists inside. Each sub list defines two things.
+ * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
+ * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
+ *
+ * Note: These should be in the proper order (at least till libsass handles map keys properly).
+ *
+ * Note: If the measurement is left out then it will be skipped when generating
+ * the grid and applied to global styles.
+ *
+ */
 
+$fg-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+) !default;
+
+$distance:                  $fg-gutter / 2;
 $distance-xs:               $distance / 4;
 $distance-s:                $distance / 2;
 $distance-m:                $distance;
 $distance-l:                $distance * 2;
 $distance-xl:               $distance * 4;
 $distance-xxl:              $distance * 8;
-
-// Large screen / wide desktop
-$container-large-desktop:      (1140px + $grid-gutter-width);
-//** For `$screen-lg-min` and up.
-$container-lg:                 $container-large-desktop;
-
-// Social media colors
-$facebook-color:                #3f5d93;
-$twitter-color:                 #57BFF7;
-$google-color:                  #bd2f1f;
-$linkedin-color:                #1970AE;
-$pinterest-color:               #bd081c;

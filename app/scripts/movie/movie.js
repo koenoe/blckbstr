@@ -11,7 +11,7 @@
       var promises = [getAdvice($routeParams.slug)];
 
       return $q.all(promises).then(function() {
-
+        selectRating(0);
       });
     }
 
@@ -29,6 +29,26 @@
         return false;
       });
     }
+
+    function selectRating(index){
+      // Set active rating
+      vm.activeRating = index;
+
+      // Calculate circumfence for active rating
+      var r = parseInt(angular.element('#js-donut').css('r')),
+          c = Math.PI * (r * 2),
+          value = vm.ratings[index].rating_calculate;
+
+      vm.ratingCircumfence = c * (100 - value) / 100;
+    }
+
+    $scope.isActive = function(index) {
+      return index === vm.activeRating;
+    };
+
+    $scope.selectRating = function(index) {
+      selectRating(index);
+    };
 
     activate();
   }

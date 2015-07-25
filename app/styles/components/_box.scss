@@ -4,20 +4,20 @@
 
 .box {
   flex-basis: 100%;
-  margin-top: $grid-gutter-width;
+  margin-top: $fg-gutter;
   background: #383838;
   position: relative;
 
   &__header {
-    padding-bottom: $grid-gutter-width / 2;
-    margin: 0 0 $grid-gutter-width / 2;
+    padding-bottom: $fg-gutter / 2;
+    margin: 0 0 $fg-gutter / 2;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(#fff, 0.4);
   }
 
   &__content {
     background: inherit; // same as box bg color
-    padding: $grid-gutter-width / 2;
+    padding: $fg-gutter / 2;
   }
 
   &__subtitle {
@@ -42,7 +42,7 @@
   }
 
   &__footer {
-    margin-top: $grid-gutter-width;
+    margin-top: $fg-gutter;
   }
 
   &.box--primary {
@@ -62,10 +62,10 @@
       &:after {
         position: absolute;
         content: '';
-        top: $grid-gutter-width;
+        top: $fg-gutter;
         right: -10px;
-        width: $grid-gutter-width;
-        height: $grid-gutter-width;
+        width: $fg-gutter;
+        height: $fg-gutter;
         z-index: -1;
         background: inherit; // same as box bg color
         transform: rotate(45deg);

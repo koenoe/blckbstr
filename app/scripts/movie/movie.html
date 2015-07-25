@@ -2,19 +2,41 @@
   <div class="movie__backdrop" style="background-image: url({{vm.tmdb_backdrop_url}})"></div>
   <div class="container">
     <div class="movie__header">
-      <div class="row center">
-        <div class="col-xs-12 col-sm-6 col-md-7">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-8">
           <div class="movie__title">
             <h1>{{vm.title}}</h1>
-            <div class="h3">{{vm.release_year}}</div>
+            <span>({{vm.release_year}})</span>
           </div>
           <div class="movie__subheader">
-            <button class="btn">{{vm.certification}}</button>
+            <div class="btn btn--label">{{vm.certification}}</div>
             <p>Directed by {{vm.directors.join(',')}}</p>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5">
-          <div movie-rating ratings="vm.ratings"></div>
+        <div class="col-xs-12 col-sm-7 col-md-4">
+          <div class="movie__rating">
+            <ul class="rating-list" ng-show="vm.ratings">
+                <li class="rating-list__item" ng-class="{active:isActive($index)}" ng-mouseover="selectRating($index)" ng-repeat="rating in vm.ratings">
+                  <span class="rating-list__label">
+                    {{rating.name}} &dash; {{rating.votes}} votes
+                  </span>
+                  <div class="rating-list__bar">
+                    <div class="rating-list__bar__fill" style="width: {{rating.rating_calculate || 0}}%">
+                      <span class="visuallyhidden">{{rating.rating_calculate}}%</span>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+            <div class="rating-donut">
+              <span class="rating-donut__value">{{vm.ratings[vm.activeRating].rating || ''}}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="rating-donut__canvas">
+                <g>
+                  <circle class="rating-donut__base"></circle>
+                  <circle id="js-donut" class="rating-donut__fill" stroke-dashoffset="{{vm.ratingCircumfence}}"></circle>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -37,7 +59,7 @@
             <div class="col-xs-12 col-sm-6 text-right">
               <h3 class="visuallyhidden" ng-if="vm.genres">Genres</h3>
               <div class="btn--group" ng-if="vm.genres">
-                <button class="btn" ng-repeat="genre in vm.genres">{{genre}}</button>
+                <div class="btn btn--label" ng-repeat="genre in vm.genres">{{genre}}</div>
               </div>
             </div>
           </div>
@@ -50,12 +72,12 @@
           <div class="box__content">
             <h2 class="box__header">Cast &amp; Crew</h2>
             <h3 class="box__subtitle">Directors</h3>
-            {{vm.directors.join(',')}}
+            {{vm.directors.join(', ')}}
             <h3 class="box__subtitle">Writers</h3>
-            {{vm.writers.join(',')}}
+            {{vm.writers.join(', ')}}
 
             <div class="box__footer" ng-if="vm.imdb_url">
-              <a class="btn" href="{{vm.imdb_url}}/fullcredits">See full cast &amp; crew</a>
+              <a class="btn" href="{{vm.imdb_url}}/fullcredits"><i class="icon-link-ext"></i>See full cast &amp; crew</a>
             </div>
           </div>
         </div>
@@ -182,9 +204,9 @@
         <div class="movie__footer">
          <h3>More information</h3>
           <div class="btn--group">
-            <a class="btn" href="{{vm.imdb_url}}" target="_blank" ng-if="vm.imdb_url">More details at IMDb</a>
-            <a class="btn" href="{{vm.letterboxd_url}}" target="_blank" ng-if="vm.letterboxd_url">More details at Letterboxd</a>
-            <a class="btn" href="{{vm.tmdb_url}}" target="_blank" ng-if="vm.tmdb_url">More details at TMDb</a>
+            <a class="btn" href="{{vm.imdb_url}}" target="_blank" ng-if="vm.imdb_url"><i class="icon-link-ext"></i>More details at IMDb</a>
+            <a class="btn" href="{{vm.letterboxd_url}}" target="_blank" ng-if="vm.letterboxd_url"><i class="icon-link-ext"></i>More details at Letterboxd</a>
+            <a class="btn" href="{{vm.tmdb_url}}" target="_blank" ng-if="vm.tmdb_url"><i class="icon-link-ext"></i>More details at TMDb</a>
           </div>
         </div>
       </div>

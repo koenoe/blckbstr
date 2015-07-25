@@ -35,10 +35,18 @@
     outline: 0;
   }
 
-  &.btn--primary {
-  }
+  &--label {
+    @include font-light;
 
-  &.btn--secondary {
+    height: 30px;
+    line-height: 30px;
+    font-size: $font-size-small;
+    text-transform: none;
+    padding: 0 $distance-m;
+
+    &:hover {
+      background: transparent;
+    }
   }
 
   .btn--group & {
