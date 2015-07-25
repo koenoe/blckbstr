@@ -44,7 +44,7 @@
       // Calculate circumfence for active rating
       var r = parseInt($('#js-donut').css('r')),
           c = Math.PI * (r * 2),
-          value = vm.ratings[index].rating;
+          value = vm.ratings[index].rating_calculate;
 
       vm.ratingCircumfence = c * (100 - value) / 100;
     };
