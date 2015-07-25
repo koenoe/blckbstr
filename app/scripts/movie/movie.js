@@ -11,7 +11,7 @@
 
     function activate(){
       var promises = [getAdvice($routeParams.slug)];
-      
+
       return $q.all(promises).then(function() {
 
         $scope.selectRating(0);
@@ -26,23 +26,6 @@
           angular.forEach(movie, function(value, key) {
             vm[key] = value;
           });
-
-          // FIX ME: dummy ratings
-          vm.ratings = [{
-            name: 'Letterboxd',
-            num: 4033,
-            rating: 62
-          },
-          {
-            name: 'IMDb',
-            num: 37905,
-            rating: 50
-          },
-          {
-            name: 'TMDb',
-            num: 123,
-            rating: 88
-          }];
 
           return data;
         }
