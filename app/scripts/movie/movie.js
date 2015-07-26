@@ -3,7 +3,7 @@
 
   // $q, dataservice, logger
   /* @ngInject */
-  function Movie($scope, $q, $routeParams, dataservice) {
+  function Movie($rootScope, $scope, $q, $routeParams, dataservice) {
 
     var vm = this;
 
@@ -11,6 +11,10 @@
       var promises = [getAdvice($routeParams.slug)];
 
       return $q.all(promises).then(function() {
+        // Set page title
+        $rootScope.title += ' ▪ ' + vm.title;
+
+        // Select default rating
         selectRating(0);
       });
     }
@@ -34,12 +38,15 @@
       // Set active rating
       vm.activeRating = index;
 
-      // Calculate circumfence for active rating
+      vm.ratingCircumfence = calculateCircumfence(index);
+    }
+
+    function calculateCircumfence(index) {
       var r = parseInt(angular.element('#js-donut').css('r')),
           c = Math.PI * (r * 2),
           value = vm.ratings[index].rating_calculate;
 
-      vm.ratingCircumfence = c * (100 - value) / 100;
+      return c * (100 - value) / 100;
     }
 
     $scope.isActive = function(index) {

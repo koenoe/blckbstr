@@ -78,7 +78,7 @@
     text-align: center;
   }
 
-  .btn--group & {
+  .btn-group & {
     box-sizing: border-box;
     display: block;
     width: 100%; // http://stackoverflow.com/questions/9699039/button-with-displayblock-not-stretched
@@ -96,7 +96,7 @@
     }
   }
 
-  .btn--group--more-spacing & {
+  .btn-group--more-spacing & {
     margin-right: $distance-l;
   }
 

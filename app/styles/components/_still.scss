@@ -8,11 +8,22 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center center;
+
+  &:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center center;
+  }
 
   &__overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -21,12 +32,17 @@
   }
 
   &__credits {
-    position: absolute;
-    bottom: $distance-xl;
-    left: $distance-l;
+    margin-top: $distance-l;
+    margin-bottom: $distance-m;
+    text-align: center;
+    position: relative;
 
     @include respond-to(sm) {
+      margin: 0;
+      position: absolute;
       bottom: $distance-l;
+      left: $distance-l;
+      text-align: left;
     }
 
     &__label {

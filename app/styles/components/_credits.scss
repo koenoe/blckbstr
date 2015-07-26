@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .credits {
+  display: none;
   flex: 0 0 auto;
   position: relative;
   text-align: right;
@@ -14,5 +15,9 @@
     color: rgba(#fff, 0.6);
     font-size: 12px;
     line-height: 1.4;
+  }
+
+  @include respond-to(sm) {
+    display: block;
   }
 }

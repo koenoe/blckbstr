@@ -24,7 +24,7 @@
 
     // Configure the common route provider
     routehelperConfigProvider.config.$routeProvider = $routeProvider;
-    routehelperConfigProvider.config.docTitle = 'BLCKBSTR: ';
+    routehelperConfigProvider.config.docTitle = 'BLCKBSTR';
 
     // Configure the common exception handler
     exceptionHandlerProvider.configure(config.appErrorPrefix);

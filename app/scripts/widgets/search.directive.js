@@ -73,6 +73,7 @@
     };
 
     $scope.submit = function(){
+      $scope.usernames = [];
 
       angular.forEach($scope.inputs, function(input) {
         // Reset error so it will animate again
