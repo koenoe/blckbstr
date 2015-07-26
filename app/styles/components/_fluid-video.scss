@@ -5,7 +5,7 @@
 
 .fluid-video {
   @include center-content;
-    
+
   position: absolute;
   top: 0;
   left: 0;
@@ -15,7 +15,8 @@
   .fluid-video__frame {
     flex-basis: 100%;
     position: relative;
-    padding-bottom: 56.25%; //16:9
+    // padding-bottom: 56.25%; //16:9
+    padding-bottom: 78%; // looks nicer?
     height: 0;
 
     iframe {
