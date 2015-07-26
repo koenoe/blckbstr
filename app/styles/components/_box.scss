@@ -9,22 +9,72 @@
   position: relative;
 
   &__header {
-    padding-bottom: $fg-gutter / 2;
-    margin: 0 0 $fg-gutter / 2;
+    @include font-semibold;
+
+    padding-bottom: 20px;
+    margin: 0 0 20px;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(#fff, 0.4);
+    line-height: 1.2;
+    position: relative;
+    font-size: 36px;
+
+    &:after {
+      content:"";
+      background: rgba(#fff, 0.4);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 50%;
+    }
   }
 
   &__content {
     background: inherit; // same as box bg color
-    padding: $fg-gutter / 2;
+    padding: $distance-l;
+    font-size: 18px;
+    line-height: 1.5;
+
+    &__awards {
+      .box__value {
+        @include font-bold;
+
+        font-size: 65px;
+        line-height: 1.3;
+      }
+
+      span {
+        @include font-semibold;
+
+        font-size: 26px;
+      }
+    }
+
+    &__currency {
+      .box__subtitle {
+        @include font-normal;
+
+        font-size: 22px;
+        line-height: 1.3;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      .box__value {
+        @include font-semibold;
+
+        font-size: 45px;
+      }
+    }
   }
 
   &__subtitle {
+    @include font-normal;
+
     color: #aaa;
     margin-bottom: 0;
     text-transform: uppercase;
-    font-size: $font-size-base;
+    font-size: $font-size-small;
+    line-height: 1.5;
 
     &:first-of-type {
       margin-top: 0;
@@ -37,6 +87,7 @@
 
   &__value {
     @include font-bold;
+
     line-height: 1;
     margin: 0;
   }
@@ -78,6 +129,11 @@
       @extend .bubble-right;
       left: -10px;
       right: auto;
+    }
+
+    .box__header:after {
+      left: auto;
+      right: 0;
     }
   }
 }

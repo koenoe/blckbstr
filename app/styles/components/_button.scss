@@ -6,6 +6,7 @@
   @include font-normal;
   @include transition-property(all);
   @include transition-duration(0.4s);
+  @include ellipsis;
 
   display: inline-block;
   border: $border-s solid rgba(#fff, 0.4);
@@ -23,6 +24,7 @@
   i {
     margin-right: 10px;
     font-size: 18px;
+    vertical-align: middle;
   }
 
   &:hover {
@@ -40,13 +42,31 @@
 
     height: 30px;
     line-height: 30px;
-    font-size: $font-size-small;
+    font-size: $font-size-smaller;
     text-transform: none;
     padding: 0 $distance-m;
 
     &:hover {
       background: transparent;
     }
+  }
+
+  &--small {
+    height: 45px;
+    line-height: 45px;
+    font-size: $font-size-small;
+    padding: 0 $distance-m;
+
+    i {
+      font-size: $font-size-small;
+      margin-right: 6px;
+    }
+  }
+
+  &--fluid {
+    width: 100%;
+    padding: 0;
+    text-align: center;
   }
 
   .btn--group & {
@@ -65,6 +85,10 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  .btn--group--more-spacing & {
+    margin-right: $distance-l;
   }
 
 }

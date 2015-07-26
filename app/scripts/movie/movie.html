@@ -9,8 +9,8 @@
             <span>({{vm.release_year}})</span>
           </div>
           <div class="movie__subheader">
-            <div class="btn btn--label">{{vm.certification}}</div>
-            <p>Directed by {{vm.directors.join(',')}}</p>
+            <div class="btn btn--label f-left">{{vm.certification}}</div>
+            <p>Directed by <span>{{vm.directors.join(',')}}</span></p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-4">
@@ -70,14 +70,14 @@
       <div class="col-xs-12 col-md-3 stretch">
         <div class="box box--secondary">
           <div class="box__content">
-            <h2 class="box__header">Cast &amp; Crew</h2>
+            <h2 class="box__header">Cast &amp;<br>Crew</h2>
             <h3 class="box__subtitle">Directors</h3>
             {{vm.directors.join(', ')}}
             <h3 class="box__subtitle">Writers</h3>
             {{vm.writers.join(', ')}}
 
             <div class="box__footer" ng-if="vm.imdb_url">
-              <a class="btn" href="{{vm.imdb_url}}/fullcredits"><i class="icon-link-ext"></i>See full cast &amp; crew</a>
+              <a class="btn btn--small btn--fluid" href="{{vm.imdb_url}}/fullcredits"><i class="icon-link-ext"></i>See full cast &amp; crew</a>
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@
         <div class="row">
           <div class="col-xs-4 stretch">
             <div class="box text-center">
-              <div class="box__content">
+              <div class="box__content box__content__awards">
                 <div class="box__value h1">{{vm.oscars}}</div>
                 <span class="h4">oscars</span>
               </div>
@@ -157,7 +157,7 @@
           </div>
           <div class="col-xs-4 stretch">
             <div class="box box--primary text-center">
-              <div class="box__content">
+              <div class="box__content box__content__awards">
                 <div class="box__value h1">{{vm.wins}}</div>
                 <span class="h4">wins</span>
               </div>
@@ -165,7 +165,7 @@
           </div>
           <div class="col-xs-4 stretch">
             <div class="box box--secondary text-center">
-              <div class="box__content">
+              <div class="box__content box__content__awards">
                 <div class="box__value h1">{{vm.nominations}}</div>
                 <span class="h4">nomina&shy;tions</span>
               </div>
@@ -175,7 +175,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="box box--secondary text-center">
-              <div class="box__content">
+              <div class="box__content box__content__currency">
                 <h4 class="box__subtitle">Budget</h4>
                 <div class="box__value h2">{{vm.budget}}</div>
               </div>
@@ -183,7 +183,7 @@
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="box box--tertiary text-center">
-              <div class="box__content">
+              <div class="box__content box__content__currency">
                 <h4 class="box__subtitle">Revenue</h4>
                 <div class="box__value h2">{{vm.revenue}}</div>
               </div>
@@ -203,10 +203,10 @@
       <div class="col-xs-12 text-center">
         <div class="movie__footer">
          <h3>More information</h3>
-          <div class="btn--group">
-            <a class="btn" href="{{vm.imdb_url}}" target="_blank" ng-if="vm.imdb_url"><i class="icon-link-ext"></i>More details at IMDb</a>
-            <a class="btn" href="{{vm.letterboxd_url}}" target="_blank" ng-if="vm.letterboxd_url"><i class="icon-link-ext"></i>More details at Letterboxd</a>
-            <a class="btn" href="{{vm.tmdb_url}}" target="_blank" ng-if="vm.tmdb_url"><i class="icon-link-ext"></i>More details at TMDb</a>
+          <div class="btn--group btn--group--more-spacing">
+            <a class="btn btn--small" href="{{vm.imdb_url}}" target="_blank" ng-if="vm.imdb_url"><i class="icon-link-ext"></i>More details at IMDb</a>
+            <a class="btn btn--small" href="{{vm.letterboxd_url}}" target="_blank" ng-if="vm.letterboxd_url"><i class="icon-link-ext"></i>More details at Letterboxd</a>
+            <a class="btn btn--small" href="{{vm.tmdb_url}}" target="_blank" ng-if="vm.tmdb_url"><i class="icon-link-ext"></i>More details at TMDb</a>
           </div>
         </div>
       </div>

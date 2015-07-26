@@ -59,9 +59,17 @@
   margin-top: $distance-m;
 
   p {
+    @include font-light;
     margin: 0 0 0 $distance-m;
     text-transform: uppercase;
     display: inline-block;
+    height: 30px;
+    line-height: 30px;
+
+    span {
+      @include font-semibold;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -104,12 +112,13 @@
   border-top: 1px solid rgba(#fff, 0.4);
   margin-top: $fg-gutter;
 
-  @include respond-to(md) {
-    margin-top: $fg-gutter * 2;
+  h3 {
+    @include font-semibold;
+    font-size: $font-size-h2;
   }
 
-  .h3 {
-    margin-bottom: $fg-gutter;
+  @include respond-to(md) {
+    margin-top: $fg-gutter * 2;
   }
 }
 
