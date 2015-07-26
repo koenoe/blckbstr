@@ -32,8 +32,8 @@
     function createAdviceComplete(data){
       if(data.hash && data.status === 200){
         if(data.email === true){
-          // TO DO: create message email
-          console.log('Not possible to give advice immediately, show message of we will email it shortly.');
+          $scope.mailForm = false;
+          $scope.thanks = true;
         } else {
           $location.path('/movie/' + data.hash);
         }
@@ -45,6 +45,10 @@
     }
 
     function activate(){
+      $scope.mailForm = false;
+      $scope.usernames = [];
+      $scope.email = '';
+
       $scope.inputs = [{
         type: 'plus',
         value: '',
@@ -69,9 +73,6 @@
     };
 
     $scope.submit = function(){
-
-      $scope.mailForm = false;
-      $scope.usernames = [];
 
       angular.forEach($scope.inputs, function(input) {
         // Reset error so it will animate again
@@ -104,6 +105,11 @@
           });
         }
       });
+    };
+
+    $scope.retry = function(){
+      $scope.thanks = false;
+      activate();
     };
 
     activate();

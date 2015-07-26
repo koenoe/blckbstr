@@ -25,6 +25,15 @@
     margin-right: 10px;
     font-size: 18px;
     vertical-align: middle;
+
+    img {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-top: -9px;
+      display: inline-block;
+      margin-right: 4px;
+    }
   }
 
   &:hover {

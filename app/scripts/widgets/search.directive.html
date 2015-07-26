@@ -1,5 +1,5 @@
 <div class="search-box">
-  <form ng-submit="submit()" ng-hide="mailForm">
+  <form ng-submit="submit()" ng-hide="mailForm || thanks">
     <div class="search-box__input" ng-class="{'animated': input.type == 'min', 'animated shake': input.error}" ng-repeat="input in inputs">
       <ng-form name="input-form">
         <input tabindex="{{$index+1}}" type="text" placeholder="Letterboxd username" name="username" autocomplete="off" ng-model="input.value" ng-required="input.type == 'plus'">
@@ -22,4 +22,11 @@
     </div>
     <button type="submit" class="btn"><i class="icon-mail"></i>Mail advice</button>
   </form>
+
+  <div ng-show="thanks" class="search-box__thanks">
+    <h1>Thanks</h1>
+    <p>You will receive your advice shortly in your inbox.</p>
+    <a ng-click="retry()" class="btn" href="/"><i><img src="/images/logo.png"></i>Back to home</a>
+  </div>
+
 </div>
