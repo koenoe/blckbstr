@@ -83,9 +83,9 @@
         </div>
       </div>
       <div class="col-xs-4 col-md-3 stretch" ng-repeat="actor in vm.actors">
-        <div class="box box--secondary">
-          <div class="movie__castitem" style="background-image: url({{actor.image}});">
-            <img src="{{actor.image || 'https://goatmilk.files.wordpress.com/2008/07/batman2_narrowweb__300x4506.jpg'}}">
+        <div class="box" style="background-image: url({{actor.image}});">
+          <div class="movie__castitem">
+            <img class="invisible" src="{{actor.image || 'https://goatmilk.files.wordpress.com/2008/07/batman2_narrowweb__300x4506.jpg'}}">
             <div class="movie__castitem__overlay">
               <div class="movie__castitem__name">
                 <strong>{{actor.name}}</strong>

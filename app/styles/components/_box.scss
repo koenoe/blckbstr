@@ -4,9 +4,11 @@
 
 .box {
   flex-basis: 100%;
-  margin-top: $fg-gutter;
-  background: #383838;
   position: relative;
+  margin-top: $fg-gutter;
+  
+  background: #383838;
+  background-size: cover;
 
   &__header {
     @include font-semibold;

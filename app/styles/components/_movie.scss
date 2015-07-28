@@ -138,32 +138,12 @@
 }
 
 .movie__castitem {
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-
-  img {
-    max-width: 100%;
-  }
-
-  &__name {
-    @include font-normal;
-
-    position: relative;
-    transform: translateY(-50%);
-    top: 50%;
-    font-size: 13px;
-    color: #aaa;
-    line-height: 1.4;
-
-    strong {
-      @include font-bold;
-      color: #fff;
-      font-size: 15px;
-    }
-  }
 
   &__overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     opacity: 0;
     position: absolute;
     top: 0;
@@ -177,4 +157,19 @@
       opacity: 1;
     }
   }
+
+  &__name {
+    @include font-normal;
+
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.4;
+    text-align: center;
+
+    strong {
+      @include font-bold;
+      color: #fff;
+      font-size: 15px;
+    }
+  }  
 }
