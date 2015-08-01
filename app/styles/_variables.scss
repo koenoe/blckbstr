@@ -41,7 +41,7 @@ $font-family-sans-serif:  'Source Sans Pro', sans-serif;
 $font-family-base:        $font-family-sans-serif;
 
 $font-size-base:          16px;
-$font-size-larger:        ceil(($font-size-base * 1.30));
+$font-size-larger:        ceil(($font-size-base * 1.30)); // ~21px
 $font-size-large:         ceil(($font-size-base * 1.25)); // ~20px
 $font-size-small:         ceil(($font-size-base * 0.85)); // ~14px
 $font-size-smaller:       ceil(($font-size-base * 0.80)); // ~12px
