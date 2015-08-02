@@ -145,27 +145,27 @@
     <div class="row">
       <div class="col-xs-12 col-lg-9">
         <div class="row">
-          <div class="col-xs-4 stretch">
+          <div class="col-xs-6 col-sm-4 stretch">
             <div class="box text-center">
-              <div class="box__content box__content--awards">
-                <div class="box__value h1">{{vm.oscars}}</div>
-                <span class="h4">oscars</span>
+              <div class="box__content">
+                <div class="box__value">{{vm.oscars}}</div>
+                <h3 class="box__label">oscars</h3>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 stretch">
+          <div class="col-xs-6 col-sm-4 stretch">
             <div class="box box--primary text-center">
-              <div class="box__content box__content--awards">
-                <div class="box__value h1">{{vm.wins}}</div>
-                <span class="h4">wins</span>
+              <div class="box__content">
+                <div class="box__value">{{vm.wins}}</div>
+                <h3 class="box__label">wins</h3>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 stretch">
+          <div class="col-xs-12 col-sm-4 stretch">
             <div class="box box--secondary text-center">
-              <div class="box__content box__content--awards">
-                <div class="box__value h1">{{vm.nominations}}</div>
-                <span class="h4">nomina&shy;tions</span>
+              <div class="box__content">
+                <div class="box__value">{{vm.nominations}}</div>
+                <h3 class="box__label">nomina&shy;tions</h3>
               </div>
             </div>
           </div>
@@ -173,17 +173,17 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="box box--secondary text-center">
-              <div class="box__content box__content__currency">
-                <h4 class="box__subtitle">Budget</h4>
-                <div class="box__value h2">{{vm.budget}}</div>
+              <div class="box__content">
+                <h3 class="box__label box__label--alternate">Budget</h3>
+                <div class="box__value box__value--alternate">{{vm.budget}}</div>
               </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="box box--tertiary text-center">
-              <div class="box__content box__content__currency">
-                <h4 class="box__subtitle">Revenue</h4>
-                <div class="box__value h2">{{vm.revenue}}</div>
+              <div class="box__content">
+                <h3 class="box__label box__label--alternate">Revenue</h3>
+                <div class="box__value box__value--alternate">{{vm.revenue}}</div>
               </div>
             </div>
           </div>
@@ -210,4 +210,5 @@
       </div>
     </div>
   </div>
+   <div class="movie__backdrop movie__backdrop--footer" style="background-image: url({{vm.tmdb_backdrop_url}})"></div>
 </div>

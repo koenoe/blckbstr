@@ -36,36 +36,6 @@
     padding: $distance-l;
     font-size: 18px;
     line-height: 1.5;
-
-    &--awards {
-      .box__value {
-        @include font-bold;
-
-        font-size: $font-size-h1;
-      }
-
-      span {
-        @include font-semibold;
-
-        font-size: 26px;
-      }
-    }
-
-    &__currency {
-      .box__subtitle {
-        @include font-normal;
-
-        font-size: 22px;
-        line-height: 1.3;
-        text-transform: uppercase;
-        color: #fff;
-      }
-      .box__value {
-        @include font-semibold;
-
-        font-size: 45px;
-      }
-    }
   }
 
   &__subtitle {
@@ -86,11 +56,33 @@
     }
   }
 
+  &__label {
+    @include font-semibold;
+
+    font-size: $font-size-h4;
+    line-height: $line-height-base;
+    margin: 0;
+
+    &--alternate {
+      @include font-normal;
+
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+  }
+
   &__value {
     @include font-bold;
 
+    font-size: $font-size-h1;
     line-height: 1;
     margin: 0;
+
+    &--alternate {
+      @include font-semibold;
+
+      font-size: 45px;
+    }
   }
 
   &__footer {

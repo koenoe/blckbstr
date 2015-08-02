@@ -7,12 +7,14 @@
   padding-bottom: $distance-xl;
 
   &__backdrop {
-    right: 0;
-    bottom: 50%;
     left: 0;
+    right: 0;
     top: 0;
+    bottom: 50%;
+
     background-size: cover;
     background-position: center top;
+
     position: absolute;
     box-shadow: inset 0 -100px 175px 0 #000;
     z-index: -1;
@@ -37,6 +39,7 @@
   border-bottom: 1px solid rgba(#fff, 0.4);
   padding-bottom: $fg-gutter;
   margin-bottom: $fg-gutter;
+  overflow: hidden;
 }
 
 .movie__title {
@@ -45,6 +48,7 @@
 
     display: inline-block;
     margin: 0 $distance-m 0 0;
+    max-width: 100%;
   }
 
   span {
